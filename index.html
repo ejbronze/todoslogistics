@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TODOS Logistics – Caribbean & International Trade Coordination</title>
+  <meta name="description" content="TODOS Logistics coordinates international sourcing and cross-border logistics to keep trade moving across the Caribbean and beyond. Dominican Republic, Haiti, USA." />
+  <meta name="keywords" content="Caribbean logistics, Dominican Republic logistics, DR Haiti logistics, cross-border trade Caribbean, international sourcing Caribbean, freight brokerage Dominican Republic" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1F2D3D;
+      --red: #C8102E;
+      --gray: #7A7A7A;
+      --bg: #F8F9FA;
+      --white: #ffffff;
+      --border: #E2E6EA;
+      --navy-light: #2a3c52;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      border-bottom: 3px solid var(--red);
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .nav-logo .brand-todos {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 22px;
+      color: var(--white); letter-spacing: 3px;
+    }
+    .nav-logo .brand-logistics {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300; font-size: 10px;
+      color: #aab8c8; letter-spacing: 4px; text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #aab8c8; text-decoration: none;
+      font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+      transition: color .2s;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); border-bottom-color: var(--red); }
+
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+
+    .lang-toggle {
+      display: flex; gap: 4px; background: rgba(255,255,255,.08);
+      border-radius: 4px; padding: 3px;
+    }
+    .lang-toggle button {
+      background: none; border: none; cursor: pointer;
+      color: #aab8c8; font-size: 11px; font-weight: 600;
+      letter-spacing: 1px; padding: 4px 8px; border-radius: 3px;
+      transition: all .2s;
+    }
+    .lang-toggle button.active { background: var(--red); color: var(--white); }
+    .lang-toggle button:hover:not(.active) { color: var(--white); }
+
+    .btn-cta-nav {
+      background: var(--red); color: var(--white); border: none; cursor: pointer;
+      font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 12px;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 9px 20px; border-radius: 2px;
+      text-decoration: none; transition: background .2s;
+      white-space: nowrap;
+    }
+    .btn-cta-nav:hover { background: #a50d25; }
+
+    /* ─── PAGES ─── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 100px 40px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 500px; height: 500px;
+      border: 1px solid rgba(200,16,46,.2);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; top: 0; right: 160px;
+      width: 300px; height: 300px;
+      border: 1px solid rgba(200,16,46,.1);
+      border-radius: 50%;
+    }
+    .hero-inner { max-width: 760px; position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--red); margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: clamp(48px, 7vw, 88px);
+      line-height: .95; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero h1 span { color: var(--red); }
+    .hero-sub {
+      font-size: 20px; font-weight: 300; color: #aab8c8;
+      margin-bottom: 12px; max-width: 540px;
+    }
+    .hero-support { font-size: 15px; color: #7a8fa3; max-width: 500px; margin-bottom: 40px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--navy); color: var(--white); border: 2px solid var(--navy);
+      font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 13px;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 28px;
+      border-radius: 2px; text-decoration: none; cursor: pointer;
+      transition: all .2s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--red); border-color: var(--red); }
+
+    .btn-primary-white {
+      background: var(--white); color: var(--navy); border: 2px solid var(--white);
+      font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 13px;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 28px;
+      border-radius: 2px; text-decoration: none; cursor: pointer;
+      transition: all .2s; display: inline-block;
+    }
+    .btn-primary-white:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+
+    .btn-outline {
+      background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.4);
+      font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 13px;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 28px;
+      border-radius: 2px; text-decoration: none; cursor: pointer;
+      transition: all .2s; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.1); }
+
+    .btn-outline-navy {
+      background: transparent; color: var(--navy); border: 2px solid var(--navy);
+      font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 13px;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 28px;
+      border-radius: 2px; text-decoration: none; cursor: pointer;
+      transition: all .2s; display: inline-block;
+    }
+    .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+
+    /* ─── SECTION STYLES ─── */
+    section { padding: 80px 40px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--red); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.05; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--navy); margin-bottom: 16px;
+    }
+    .section-body { font-size: 16px; color: var(--gray); max-width: 620px; line-height: 1.7; }
+
+    .section-bg { background: var(--bg); }
+    .section-dark { background: var(--navy); color: var(--white); }
+    .section-dark .section-title { color: var(--white); }
+    .section-dark .section-body { color: #aab8c8; }
+
+    /* ─── CAPABILITIES GRID ─── */
+    .cap-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px; background: var(--border); margin-top: 60px;
+    }
+    .cap-card {
+      background: var(--white); padding: 36px 32px;
+      transition: background .2s;
+    }
+    .cap-card:hover { background: var(--bg); }
+    .cap-icon {
+      width: 44px; height: 44px; margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--navy); color: var(--white);
+      font-size: 20px; border-radius: 2px;
+    }
+    .cap-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 18px; letter-spacing: .5px;
+      text-transform: uppercase; color: var(--navy); margin-bottom: 10px;
+    }
+    .cap-desc { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+    /* ─── CORRIDORS ─── */
+    .corridors-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px; margin-top: 48px;
+    }
+    .corridor-card {
+      border-left: 3px solid var(--red); padding: 20px 24px;
+      background: rgba(255,255,255,.05);
+    }
+    .corridor-country {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 20px; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--white); margin-bottom: 6px;
+    }
+    .corridor-desc { font-size: 13px; color: #7a8fa3; line-height: 1.5; }
+
+    /* ─── INSTITUTIONAL ─── */
+    .inst-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px; margin-top: 48px;
+    }
+    .inst-card { border-top: 2px solid var(--border); padding-top: 24px; }
+    .inst-type {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 17px; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--navy); margin-bottom: 8px;
+    }
+    .inst-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    /* ─── ABOUT ─── */
+    .about-hero {
+      background: var(--navy); padding: 80px 40px;
+    }
+    .about-split {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: start; max-width: 1100px; margin: 0 auto;
+    }
+    .about-text { font-size: 16px; color: #aab8c8; line-height: 1.75; }
+    .about-text p { margin-bottom: 20px; }
+    .about-text strong { color: var(--white); }
+
+    .values-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); margin-top: 60px;
+    }
+    .value-card {
+      background: var(--white); padding: 32px;
+    }
+    .value-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 36px; color: var(--red);
+      opacity: .4; line-height: 1; margin-bottom: 8px;
+    }
+    .value-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 18px; letter-spacing: .5px;
+      text-transform: uppercase; color: var(--navy); margin-bottom: 8px;
+    }
+    .value-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    /* ─── SERVICES ─── */
+    .service-block {
+      border-top: 1px solid var(--border);
+      padding: 56px 0; max-width: 1100px; margin: 0 auto;
+    }
+    .service-block:first-child { border-top: none; }
+    .service-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; }
+    .service-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 72px; color: var(--red);
+      opacity: .15; line-height: 1;
+    }
+    .service-content .service-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 28px; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--navy); margin-bottom: 16px;
+    }
+    .service-content p { font-size: 15px; color: var(--gray); line-height: 1.7; margin-bottom: 16px; }
+    .service-features { list-style: none; margin-bottom: 24px; }
+    .service-features li {
+      font-size: 14px; color: var(--gray); padding: 6px 0;
+      border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px;
+    }
+    .service-features li::before { content: '—'; color: var(--red); font-weight: 700; }
+
+    /* ─── MARKETS ─── */
+    .markets-map {
+      background: var(--navy); padding: 80px 40px;
+    }
+    .market-regions {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px; margin-top: 48px;
+    }
+    .market-card {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      padding: 28px; border-radius: 1px;
+      border-top: 3px solid var(--red);
+    }
+    .market-region {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 18px; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--white); margin-bottom: 10px;
+    }
+    .market-detail { font-size: 13px; color: #7a8fa3; line-height: 1.6; }
+
+    /* ─── PARTNERSHIPS ─── */
+    .partner-tiers {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px; margin-top: 48px;
+    }
+    .partner-card {
+      border: 1px solid var(--border); padding: 36px;
+      position: relative; overflow: hidden;
+      transition: border-color .2s;
+    }
+    .partner-card:hover { border-color: var(--red); }
+    .partner-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--red);
+    }
+    .partner-type {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 22px; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--navy); margin-bottom: 12px;
+    }
+    .partner-desc { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 20px; }
+    .partner-bullets { list-style: none; }
+    .partner-bullets li {
+      font-size: 13px; color: var(--gray); padding: 5px 0;
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .partner-bullets li::before { content: '▸'; color: var(--red); font-size: 10px; margin-top: 4px; }
+
+    /* ─── CONTACT ─── */
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 64px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .contact-info { }
+    .contact-info-item { margin-bottom: 28px; }
+    .contact-info-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--red); margin-bottom: 4px;
+    }
+    .contact-info-value { font-size: 15px; color: var(--navy); }
+
+    .contact-form { display: grid; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gray);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1px solid var(--border); background: var(--white);
+      font-family: 'Barlow', sans-serif; font-size: 15px; color: var(--navy);
+      padding: 12px 16px; border-radius: 2px; outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--navy); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select { cursor: pointer; }
+
+    .form-submit {
+      background: var(--navy); color: var(--white); border: 2px solid var(--navy);
+      font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 13px;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 32px;
+      border-radius: 2px; cursor: pointer; transition: all .2s;
+      align-self: start;
+    }
+    .form-submit:hover { background: var(--red); border-color: var(--red); }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      background: var(--navy); padding: 64px 40px 56px;
+      border-bottom: 3px solid var(--red);
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .page-hero-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--red); margin-bottom: 12px;
+    }
+    .page-hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: clamp(36px, 5vw, 64px);
+      line-height: 1; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--white); margin-bottom: 16px;
+    }
+    .page-hero p { font-size: 17px; color: #7a8fa3; max-width: 560px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #131e2b; color: #7a8fa3;
+      padding: 56px 40px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+    }
+    .footer-brand .brand-todos {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 24px; color: var(--white);
+      letter-spacing: 3px; display: block; margin-bottom: 4px;
+    }
+    .footer-brand .brand-logistics {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: #3a5068; display: block; margin-bottom: 16px;
+    }
+    .footer-tagline { font-size: 13px; color: #3a5068; line-height: 1.6; }
+    .footer-col-title {
+      font-size: 11px; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--white); margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a {
+      font-size: 13px; color: #7a8fa3; text-decoration: none;
+      transition: color .2s; cursor: pointer;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      max-width: 1100px; margin: 40px auto 0;
+      border-top: 1px solid #1d2d3e; padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 12px; color: #3a5068; }
+
+    /* ─── MOBILE NAV ─── */
+    .mobile-menu-btn {
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 4px;
+    }
+    .mobile-menu-btn span {
+      display: block; width: 22px; height: 2px; background: var(--white);
+      transition: all .2s;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider { height: 1px; background: var(--border); }
+
+    /* ─── STAT BAR ─── */
+    .stat-bar {
+      background: var(--red); padding: 40px;
+      display: flex; justify-content: center; gap: 80px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 40px; color: var(--white); letter-spacing: 1px;
+      display: block;
+    }
+    .stat-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.7); }
+
+    /* ─── NOTICE BANNER ─── */
+    .notice-banner {
+      background: var(--bg); border-left: 3px solid var(--navy);
+      padding: 16px 24px; margin-top: 32px;
+      font-size: 13px; color: var(--gray);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
+      section { padding: 56px 20px; }
+      .hero { padding: 72px 20px; }
+      .about-split { grid-template-columns: 1fr; gap: 32px; }
+      .service-layout { grid-template-columns: 1fr; }
+      .service-num { font-size: 40px; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .page-hero { padding: 48px 20px 40px; }
+      .stat-bar { gap: 40px; padding: 32px 20px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="#" class="nav-logo" onclick="goPage('home')">
+    <span class="brand-todos" data-i18n="brand_todos">TODOS</span>
+    <span class="brand-logistics" data-i18n="brand_logistics">Logistics</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#" onclick="goPage('home')" data-i18n="nav_home">Home</a></li>
+    <li><a href="#" onclick="goPage('about')" data-i18n="nav_about">About</a></li>
+    <li><a href="#" onclick="goPage('services')" data-i18n="nav_services">Services</a></li>
+    <li><a href="#" onclick="goPage('markets')" data-i18n="nav_markets">Markets</a></li>
+    <li><a href="#" onclick="goPage('partnerships')" data-i18n="nav_partnerships">Partnerships</a></li>
+    <li><a href="#" onclick="goPage('contact')" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('en')">EN</button>
+      <button onclick="setLang('es')">ES</button>
+      <button onclick="setLang('fr')">FR</button>
+    </div>
+    <a href="#" class="btn-cta-nav" onclick="goPage('contact')" data-i18n="cta_consult">Request Consultation</a>
+    <button class="mobile-menu-btn" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HOME PAGE ═══ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero" style="padding-bottom:80px;">
+    <div class="hero-inner">
+      <p class="hero-eyebrow" data-i18n="hero_eyebrow">Dominican Republic · Caribbean · Global</p>
+      <h1>TODOS<br><span>Logistics</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">Global sourcing. Cross-border execution.</p>
+      <p class="hero-support" data-i18n="hero_support">Coordinating international sourcing and cross-border logistics across the Caribbean and global markets.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary-white" onclick="goPage('contact')" data-i18n="cta_consult">Request Consultation</a>
+        <a href="#" class="btn-outline" onclick="goPage('services')" data-i18n="cta_services">View Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stat bar -->
+  <div class="stat-bar">
+    <div class="stat">
+      <span class="stat-num">4+</span>
+      <span class="stat-label" data-i18n="stat_corridors">Trade Corridors</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label" data-i18n="stat_modes">Transport Modes</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">DR–HT</span>
+      <span class="stat-label" data-i18n="stat_corridor">Primary Corridor</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">∞</span>
+      <span class="stat-label" data-i18n="stat_global">Global Sourcing</span>
+    </div>
+  </div>
+
+  <!-- Core Capabilities -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label" data-i18n="cap_label">Core Capabilities</p>
+      <h2 class="section-title" data-i18n="cap_title">What We Coordinate</h2>
+      <p class="section-body" data-i18n="cap_body">TODOS Logistics provides end-to-end coordination across the full trade lifecycle — from procurement through final delivery.</p>
+      <div class="cap-grid">
+        <div class="cap-card">
+          <div class="cap-icon">🌐</div>
+          <p class="cap-title" data-i18n="cap1_title">International Sourcing & Procurement</p>
+          <p class="cap-desc" data-i18n="cap1_desc">Connecting buyers with global suppliers across Asia, Europe, and the Americas. We manage vendor coordination, documentation, and supply chain structure.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">✈</div>
+          <p class="cap-title" data-i18n="cap2_title">Freight Brokerage & Global Routing</p>
+          <p class="cap-desc" data-i18n="cap2_desc">Air and ocean freight coordination with optimized routing for cost and reliability. We work with established carriers to move cargo on your schedule.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">🚛</div>
+          <p class="cap-title" data-i18n="cap3_title">Cross-Border Ground Transport</p>
+          <p class="cap-desc" data-i18n="cap3_desc">Specialized in the Dominican Republic–Haiti land corridor, providing structured ground logistics with border crossing coordination.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">📋</div>
+          <p class="cap-title" data-i18n="cap4_title">Trade Facilitation & Compliance</p>
+          <p class="cap-desc" data-i18n="cap4_desc">Supporting importers and exporters with documentation, regulatory compliance, customs coordination, and trade procedure management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trade Corridors -->
+  <section class="section-dark">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="corr_label">Geographic Coverage</p>
+      <h2 class="section-title" data-i18n="corr_title">Strategic Trade Corridors</h2>
+      <p class="section-body" data-i18n="corr_body">Our operational focus spans key trade lanes in the Caribbean, with global sourcing reach across major supplier regions.</p>
+      <div class="corridors-grid">
+        <div class="corridor-card">
+          <p class="corridor-country" data-i18n="corr1_country">Dominican Republic</p>
+          <p class="corridor-desc" data-i18n="corr1_desc">Primary base of operations. Full coordination of inbound and outbound freight, customs, and ground logistics.</p>
+        </div>
+        <div class="corridor-card">
+          <p class="corridor-country" data-i18n="corr2_country">Haiti</p>
+          <p class="corridor-desc" data-i18n="corr2_desc">Active land border corridor. Structured ground transport and cross-border trade facilitation.</p>
+        </div>
+        <div class="corridor-card">
+          <p class="corridor-country" data-i18n="corr3_country">United States</p>
+          <p class="corridor-desc" data-i18n="corr3_desc">Transshipment hub coordination and supplier linkage across major U.S. ports and inland distribution points.</p>
+        </div>
+        <div class="corridor-card">
+          <p class="corridor-country" data-i18n="corr4_country">Asia & Europe</p>
+          <p class="corridor-desc" data-i18n="corr4_desc">International sourcing coordination from established manufacturing regions, including China, Southeast Asia, and key European suppliers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Institutional Readiness -->
+  <section class="section-bg">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="inst_label">Institutional Readiness</p>
+      <h2 class="section-title" data-i18n="inst_title">Built for Structured Collaboration</h2>
+      <p class="section-body" data-i18n="inst_body">TODOS Logistics is structured for accountable, documented, and reliable coordination across institutional counterparts in both public and private sectors.</p>
+      <div class="inst-grid">
+        <div class="inst-card">
+          <p class="inst-type" data-i18n="inst1_type">Private Enterprises</p>
+          <p class="inst-desc" data-i18n="inst1_desc">Importers, exporters, manufacturers, and distributors seeking reliable logistics coordination and procurement support across Caribbean and global markets.</p>
+        </div>
+        <div class="inst-card">
+          <p class="inst-type" data-i18n="inst2_type">Government Agencies</p>
+          <p class="inst-desc" data-i18n="inst2_desc">Public sector entities requiring structured trade facilitation, cross-border coordination, and documented logistics processes for government procurement.</p>
+        </div>
+        <div class="inst-card">
+          <p class="inst-type" data-i18n="inst3_type">NGOs & Aid Organizations</p>
+          <p class="inst-desc" data-i18n="inst3_desc">Humanitarian and development organizations requiring reliable, documented supply chain coordination across the Dominican Republic–Haiti corridor.</p>
+        </div>
+      </div>
+      <div style="margin-top:40px;">
+        <a href="#" class="btn-outline-navy" onclick="goPage('partnerships')" data-i18n="cta_partner">Discuss a Partnership</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section style="background:var(--navy); padding:56px 40px;">
+    <div style="max-width:700px; margin:0 auto; text-align:center;">
+      <p class="section-label" style="text-align:center;" data-i18n="cta_strip_label">Ready to Move</p>
+      <h2 class="section-title" style="color:var(--white); text-align:center; margin-bottom:20px;" data-i18n="cta_strip_title">Let's Coordinate Your Next Shipment</h2>
+      <p style="color:#7a8fa3; font-size:15px; margin-bottom:32px;" data-i18n="cta_strip_body">Whether you're importing goods, exporting regionally, or managing a complex cross-border corridor — TODOS Logistics is ready to structure a solution.</p>
+      <a href="#" class="btn-primary-white" onclick="goPage('contact')" data-i18n="cta_consult">Request Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══ ABOUT PAGE ═══ -->
+<div class="page" id="page-about">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow" data-i18n="nav_about">About</p>
+      <h1 data-i18n="about_h1">A Coordination-First<br>Logistics Company</h1>
+      <p data-i18n="about_hero_p">We don't move freight ourselves — we orchestrate the people, systems, and partners that do.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="about-split">
+      <div>
+        <p class="section-label" data-i18n="about_mission_label">Our Mission</p>
+        <h2 class="section-title" data-i18n="about_mission_title">Connecting Trade. Reducing Friction.</h2>
+      </div>
+      <div class="about-text" style="color:var(--gray);">
+        <p data-i18n="about_p1">TODOS Logistics was founded to address a persistent gap in Caribbean trade: the lack of structured, reliable coordination across complex cross-border supply chains. We operate as a logistics coordination company — not a carrier — focused on bringing discipline, documentation, and accountability to international sourcing and cross-border movement.</p>
+        <p data-i18n="about_p2">Our base of operations is the Dominican Republic, positioned at a critical intersection of Caribbean trade. The Dominican Republic–Haiti land corridor represents one of the region's most active — and most complex — cross-border trade routes, and it is where we have developed deep operational expertise.</p>
+        <p data-i18n="about_p3">As an asset-light operator, we work with established freight carriers, customs brokers, ground transport providers, and international suppliers. This model allows us to remain agile, cost-effective, and scalable — adapting our service structure to meet the specific requirements of each engagement.</p>
+        <p data-i18n="about_p4"><strong>TODOS Logistics is currently registered as an SRL in the Dominican Republic.</strong> We are designed from inception to operate within structured institutional environments, with full documentation and compliance at every stage of the trade process.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section-bg">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="about_diff_label">Our Approach</p>
+      <h2 class="section-title" data-i18n="about_diff_title">What Sets Us Apart</h2>
+      <div class="values-grid" style="max-width:900px;">
+        <div class="value-card">
+          <div class="value-num">01</div>
+          <p class="value-title" data-i18n="val1_title">Coordination Over Ownership</p>
+          <p class="value-desc" data-i18n="val1_desc">Our asset-light model means we invest in relationships and expertise, not equipment. This translates to flexibility and lower overhead for our clients.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">02</div>
+          <p class="value-title" data-i18n="val2_title">Compliance-First Operations</p>
+          <p class="value-desc" data-i18n="val2_desc">Every engagement is built around documented processes, proper regulatory adherence, and transparent reporting — requirements for institutional counterparts.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">03</div>
+          <p class="value-title" data-i18n="val3_title">Regional Depth</p>
+          <p class="value-desc" data-i18n="val3_desc">Our understanding of Caribbean trade dynamics — particularly the DR-Haiti corridor — gives us an operational advantage that general logistics providers lack.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">04</div>
+          <p class="value-title" data-i18n="val4_title">Institutional Credibility</p>
+          <p class="value-desc" data-i18n="val4_desc">Our structure, documentation practices, and operational discipline are designed for engagements with private enterprises, government agencies, and NGOs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══ SERVICES PAGE ═══ -->
+<div class="page" id="page-services">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow" data-i18n="nav_services">Services</p>
+      <h1 data-i18n="services_h1">What We Do</h1>
+      <p data-i18n="services_hero_p">Four core service areas. One coordinated approach to international trade.</p>
+    </div>
+  </div>
+
+  <section style="padding-top:0;">
+    <div class="service-block">
+      <div class="service-layout">
+        <div><div class="service-num">01</div></div>
+        <div class="service-content">
+          <p class="service-title" data-i18n="s1_title">International Sourcing & Procurement Coordination</p>
+          <p data-i18n="s1_p1">We connect Caribbean-based importers with vetted international suppliers across Asia, Europe, and North America. Our role is to structure the sourcing process — identifying suppliers, coordinating samples and pricing, managing documentation, and ensuring supplier accountability throughout the procurement lifecycle.</p>
+          <p data-i18n="s1_p2">This service is particularly valuable for businesses that lack the in-house infrastructure to manage international supplier relationships directly.</p>
+          <ul class="service-features">
+            <li data-i18n="s1_f1">Supplier identification and vetting</li>
+            <li data-i18n="s1_f2">RFQ coordination and price comparison</li>
+            <li data-i18n="s1_f3">Purchase order and contract documentation</li>
+            <li data-i18n="s1_f4">Pre-shipment coordination and quality oversight</li>
+            <li data-i18n="s1_f5">Import documentation support</li>
+          </ul>
+          <a href="#" class="btn-outline-navy" onclick="goPage('contact')" data-i18n="cta_inquire">Inquire About This Service</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-layout">
+        <div><div class="service-num">02</div></div>
+        <div class="service-content">
+          <p class="service-title" data-i18n="s2_title">Freight Brokerage & Global Routing</p>
+          <p data-i18n="s2_p1">We coordinate air and ocean freight movement through established carrier relationships, selecting the optimal routing, transit time, and cost structure for each shipment. Our role is to manage the logistics coordination layer so our clients can focus on their business — not their supply chain.</p>
+          <p data-i18n="s2_p2">We maintain connections to freight providers across key corridors including US–Caribbean, Asia–Caribbean, and intra-Caribbean routes.</p>
+          <ul class="service-features">
+            <li data-i18n="s2_f1">Ocean freight (FCL and LCL)</li>
+            <li data-i18n="s2_f2">Air freight coordination</li>
+            <li data-i18n="s2_f3">Rate negotiation and carrier selection</li>
+            <li data-i18n="s2_f4">Bill of lading and shipping documentation</li>
+            <li data-i18n="s2_f5">Cargo tracking and status reporting</li>
+          </ul>
+          <a href="#" class="btn-outline-navy" onclick="goPage('contact')" data-i18n="cta_inquire">Inquire About This Service</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-layout">
+        <div><div class="service-num">03</div></div>
+        <div class="service-content">
+          <p class="service-title" data-i18n="s3_title">Cross-Border Ground Transport</p>
+          <p data-i18n="s3_p1">The Dominican Republic–Haiti land border corridor is one of the most commercially active — and operationally complex — trade routes in the Caribbean. TODOS Logistics specializes in structured cross-border coordination across this corridor, including ground transport, border documentation, and in-country delivery coordination.</p>
+          <p data-i18n="s3_p2">We work with established ground transport operators and border clearing agents to ensure documented, reliable movement of goods.</p>
+          <ul class="service-features">
+            <li data-i18n="s3_f1">DR–Haiti land border coordination</li>
+            <li data-i18n="s3_f2">Ground transport provider management</li>
+            <li data-i18n="s3_f3">Border crossing documentation</li>
+            <li data-i18n="s3_f4">In-country last-mile coordination</li>
+            <li data-i18n="s3_f5">Cargo security and chain-of-custody documentation</li>
+          </ul>
+          <a href="#" class="btn-outline-navy" onclick="goPage('contact')" data-i18n="cta_inquire">Inquire About This Service</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="service-layout">
+        <div><div class="service-num">04</div></div>
+        <div class="service-content">
+          <p class="service-title" data-i18n="s4_title">Trade Facilitation & Compliance Support</p>
+          <p data-i18n="s4_p1">International trade involves a significant documentation and regulatory burden. We provide coordination support across customs procedures, import/export documentation, and trade compliance — particularly for transactions involving the Dominican Republic and regional trade corridors.</p>
+          <p data-i18n="s4_p2">This service is particularly relevant for organizations entering new markets or managing high-volume trade with complex regulatory requirements.</p>
+          <ul class="service-features">
+            <li data-i18n="s4_f1">Customs documentation coordination</li>
+            <li data-i18n="s4_f2">Import/export licensing support</li>
+            <li data-i18n="s4_f3">Trade procedure advisory</li>
+            <li data-i18n="s4_f4">Certificate of origin and compliance documentation</li>
+            <li data-i18n="s4_f5">Regulatory coordination with local customs authorities</li>
+          </ul>
+          <a href="#" class="btn-outline-navy" onclick="goPage('contact')" data-i18n="cta_inquire">Inquire About This Service</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══ MARKETS PAGE ═══ -->
+<div class="page" id="page-markets">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow" data-i18n="nav_markets">Markets</p>
+      <h1 data-i18n="markets_h1">Where We Operate</h1>
+      <p data-i18n="markets_hero_p">Caribbean-centered. Globally connected. Structured for trade across corridors that matter.</p>
+    </div>
+  </div>
+
+  <section class="section-dark" style="padding-top:72px;">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="markets_focus_label">Operational Regions</p>
+      <h2 class="section-title" data-i18n="markets_focus_title">Trade Corridors & Markets</h2>
+      <p class="section-body" data-i18n="markets_focus_body">TODOS Logistics concentrates its coordination capabilities on the Caribbean's most commercially significant trade routes, while maintaining sourcing reach into global manufacturing and supply regions.</p>
+      <div class="market-regions">
+        <div class="market-card">
+          <p class="market-region" data-i18n="m1_region">Dominican Republic</p>
+          <p class="market-detail" data-i18n="m1_detail">Primary operational base. The DR serves as our coordination hub for inbound freight, outbound export, and regional distribution. We coordinate across Santo Domingo, Santiago, and key port facilities including Puerto de Haina and Puerto de Caucedo.</p>
+        </div>
+        <div class="market-card">
+          <p class="market-region" data-i18n="m2_region">Haiti</p>
+          <p class="market-detail" data-i18n="m2_detail">Active market via the DR–Haiti land border corridor. We coordinate formal trade across the Dajabón–Ouanaminthe and Jimani–Malpasse crossings, supporting both private commercial trade and NGO supply chains.</p>
+        </div>
+        <div class="market-card">
+          <p class="market-region" data-i18n="m3_region">United States</p>
+          <p class="market-detail" data-i18n="m3_detail">Key origin and transshipment market for Caribbean imports. We coordinate through Miami, New York/NJ, and other U.S. port gateways for ocean and air freight destined for the Caribbean.</p>
+        </div>
+        <div class="market-card">
+          <p class="market-region" data-i18n="m4_region">Asia Pacific</p>
+          <p class="market-detail" data-i18n="m4_detail">Primary sourcing region for manufactured goods. We coordinate procurement from China, Vietnam, South Korea, and other established manufacturing centers across the region.</p>
+        </div>
+        <div class="market-card">
+          <p class="market-region" data-i18n="m5_region">Europe</p>
+          <p class="market-detail" data-i18n="m5_detail">Specialized sourcing for industrial goods, equipment, and premium products from European suppliers, with coordination from key ports including Rotterdam, Hamburg, and Barcelona.</p>
+        </div>
+        <div class="market-card">
+          <p class="market-region" data-i18n="m6_region">Caribbean Region</p>
+          <p class="market-detail" data-i18n="m6_detail">Intra-Caribbean trade coordination across CARICOM markets and neighboring island nations. We provide connections and coordination for broader regional expansion as client needs evolve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <p class="section-label" data-i18n="markets_why_label">Why the Caribbean</p>
+      <h2 class="section-title" data-i18n="markets_why_title">A Region With Structural Trade Needs</h2>
+      <div class="about-split">
+        <div>
+          <p style="font-size:16px; color:var(--gray); line-height:1.75; margin-bottom:16px;" data-i18n="markets_why_p1">The Caribbean is heavily import-dependent, with limited domestic manufacturing capacity and strong demand for coordinated logistics infrastructure. Most Caribbean nations rely on external sourcing for a significant portion of their consumable and industrial goods.</p>
+          <p style="font-size:16px; color:var(--gray); line-height:1.75;" data-i18n="markets_why_p2">At the same time, cross-border trade — particularly between the Dominican Republic and Haiti — remains one of the region's most commercially active but logistically underserved corridors. This is where TODOS Logistics is positioned to have the greatest impact.</p>
+        </div>
+        <div>
+          <p style="font-size:16px; color:var(--gray); line-height:1.75; margin-bottom:16px;" data-i18n="markets_why_p3">The Dominican Republic's strategic position — at the center of Caribbean shipping lanes, adjacent to Haiti, and well-connected to U.S. and European trade routes — makes it an ideal base for a coordination-focused logistics operator.</p>
+          <p style="font-size:16px; color:var(--gray); line-height:1.75;" data-i18n="markets_why_p4">We understand the regulatory environment, the operational challenges, and the institutional requirements of this market in a way that general logistics providers typically do not.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══ PARTNERSHIPS PAGE ═══ -->
+<div class="page" id="page-partnerships">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow" data-i18n="nav_partnerships">Partnerships</p>
+      <h1 data-i18n="partners_h1">Working With<br>Structured Counterparts</h1>
+      <p data-i18n="partners_hero_p">We are built for accountable, documented collaboration with organizations that require reliable logistics coordination.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <p class="section-label" data-i18n="partners_who_label">Who We Work With</p>
+      <h2 class="section-title" data-i18n="partners_who_title">Three Institutional Audiences</h2>
+      <p class="section-body" style="margin-bottom:0;" data-i18n="partners_who_body">TODOS Logistics is designed to serve organizations across the public, private, and civil society sectors — with a consistent commitment to operational discipline and transparency.</p>
+      <div class="partner-tiers">
+        <div class="partner-card">
+          <p class="partner-type" data-i18n="pt1_type">Private Enterprises</p>
+          <p class="partner-desc" data-i18n="pt1_desc">We work with importers, exporters, distributors, and manufacturers who need structured logistics coordination without the overhead of an in-house logistics team.</p>
+          <ul class="partner-bullets">
+            <li data-i18n="pt1_b1">Caribbean-based importers and distributors</li>
+            <li data-i18n="pt1_b2">Manufacturers sourcing from international suppliers</li>
+            <li data-i18n="pt1_b3">Exporters accessing Caribbean and regional markets</li>
+            <li data-i18n="pt1_b4">Trading companies managing multi-corridor supply chains</li>
+          </ul>
+        </div>
+        <div class="partner-card">
+          <p class="partner-type" data-i18n="pt2_type">Government Agencies</p>
+          <p class="partner-desc" data-i18n="pt2_desc">We support public sector procurement and logistics coordination with full documentation, compliance, and process transparency required for government engagements.</p>
+          <ul class="partner-bullets">
+            <li data-i18n="pt2_b1">Government procurement and supply chain offices</li>
+            <li data-i18n="pt2_b2">Public sector infrastructure projects requiring international sourcing</li>
+            <li data-i18n="pt2_b3">Border management and trade facilitation agencies</li>
+            <li data-i18n="pt2_b4">Ministries coordinating cross-border trade policy implementation</li>
+          </ul>
+        </div>
+        <div class="partner-card">
+          <p class="partner-type" data-i18n="pt3_type">NGOs & Aid Organizations</p>
+          <p class="partner-desc" data-i18n="pt3_desc">Humanitarian and development organizations operating in the Caribbean — particularly in Haiti — require logistics partners who understand the corridor and can deliver with documentation and accountability.</p>
+          <ul class="partner-bullets">
+            <li data-i18n="pt3_b1">Humanitarian supply chain coordination (DR–Haiti corridor)</li>
+            <li data-i18n="pt3_b2">Development program procurement support</li>
+            <li data-i18n="pt3_b3">Emergency logistics coordination and routing</li>
+            <li data-i18n="pt3_b4">Full chain-of-custody documentation for donor compliance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-bg">
+    <div class="section-inner" style="text-align:center; max-width:700px; margin:0 auto;">
+      <p class="section-label" style="text-align:center;" data-i18n="partners_cta_label">Start a Conversation</p>
+      <h2 class="section-title" style="text-align:center; margin-bottom:16px;" data-i18n="partners_cta_title">Ready to Coordinate?</h2>
+      <p style="font-size:16px; color:var(--gray); margin-bottom:32px;" data-i18n="partners_cta_body">Whether you represent a private organization, a government agency, or an NGO — we welcome the opportunity to discuss how TODOS Logistics can support your trade and logistics requirements.</p>
+      <a href="#" class="btn-primary" onclick="goPage('contact')" data-i18n="cta_consult">Request Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══ CONTACT PAGE ═══ -->
+<div class="page" id="page-contact">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow" data-i18n="nav_contact">Contact</p>
+      <h1 data-i18n="contact_h1">Get in Touch</h1>
+      <p data-i18n="contact_hero_p">Ready to discuss your logistics requirements? We respond to all inquiries within one business day.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p class="section-label" data-i18n="contact_info_label">Contact Information</p>
+        <h2 class="section-title" style="margin-bottom:32px; font-size:28px;" data-i18n="contact_info_title">TODOS Logistics</h2>
+
+        <div class="contact-info-item">
+          <p class="contact-info-label" data-i18n="contact_email_label">Email</p>
+          <p class="contact-info-value"><a href="mailto:info@todoslogistics.com" style="color:var(--navy); text-decoration:none;">info@todoslogistics.com</a></p>
+        </div>
+        <div class="contact-info-item">
+          <p class="contact-info-label" data-i18n="contact_entity_label">Entity</p>
+          <p class="contact-info-value" data-i18n="contact_entity_val">Dominican Republic (SRL)</p>
+        </div>
+        <div class="contact-info-item">
+          <p class="contact-info-label" data-i18n="contact_ops_label">Primary Operations</p>
+          <p class="contact-info-value" data-i18n="contact_ops_val">Dominican Republic · Haiti Corridor · Caribbean</p>
+        </div>
+        <div class="contact-info-item">
+          <p class="contact-info-label" data-i18n="contact_response_label">Response Time</p>
+          <p class="contact-info-value" data-i18n="contact_response_val">Within 1 business day</p>
+        </div>
+
+        <div class="notice-banner" data-i18n="contact_notice">
+          All inquiries are handled confidentially. We do not share client information with third parties.
+        </div>
+      </div>
+
+      <div>
+        <p class="section-label" data-i18n="contact_form_label">Consultation Request</p>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="form_name">Full Name</label>
+              <input type="text" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label data-i18n="form_org">Organization</label>
+              <input type="text" placeholder="Company or Agency Name" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="form_email">Email Address</label>
+              <input type="email" placeholder="you@organization.com" required />
+            </div>
+            <div class="form-group">
+              <label data-i18n="form_phone">Phone Number</label>
+              <input type="tel" placeholder="+1 (809) 000-0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_service">Service Needed</label>
+            <select>
+              <option value="" data-i18n="form_service_default">Select a service...</option>
+              <option value="sourcing" data-i18n="form_s1">International Sourcing & Procurement</option>
+              <option value="freight" data-i18n="form_s2">Freight Brokerage & Global Routing</option>
+              <option value="ground" data-i18n="form_s3">Cross-Border Ground Transport</option>
+              <option value="compliance" data-i18n="form_s4">Trade Facilitation & Compliance</option>
+              <option value="multiple" data-i18n="form_s5">Multiple Services</option>
+              <option value="other" data-i18n="form_s6">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_message">Message</label>
+            <textarea placeholder="Please describe your logistics requirements, trade corridor, cargo type, or any relevant details..." data-i18n-placeholder="form_message_ph"></textarea>
+          </div>
+          <button type="submit" class="form-submit" data-i18n="form_submit">Send Inquiry →</button>
+        </form>
+        <div id="form-success" style="display:none; background:var(--bg); border-left:3px solid var(--navy); padding:20px 24px; margin-top:16px; font-size:14px; color:var(--navy);" data-i18n="form_success">
+          Thank you for your inquiry. A TODOS Logistics representative will respond within one business day.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-todos">TODOS</span>
+      <span class="brand-logistics">Logistics</span>
+      <p class="footer-tagline" data-i18n="footer_tagline">Coordinating international sourcing and cross-border logistics across the Caribbean and beyond.</p>
+    </div>
+    <div>
+      <p class="footer-col-title" data-i18n="footer_company">Company</p>
+      <ul class="footer-links">
+        <li><a onclick="goPage('about')" data-i18n="nav_about">About</a></li>
+        <li><a onclick="goPage('services')" data-i18n="nav_services">Services</a></li>
+        <li><a onclick="goPage('markets')" data-i18n="nav_markets">Markets</a></li>
+        <li><a onclick="goPage('partnerships')" data-i18n="nav_partnerships">Partnerships</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title" data-i18n="footer_services">Services</p>
+      <ul class="footer-links">
+        <li><a onclick="goPage('services')" data-i18n="cap1_title_short">Int'l Sourcing</a></li>
+        <li><a onclick="goPage('services')" data-i18n="cap2_title_short">Freight Brokerage</a></li>
+        <li><a onclick="goPage('services')" data-i18n="cap3_title_short">Ground Transport</a></li>
+        <li><a onclick="goPage('services')" data-i18n="cap4_title_short">Trade Compliance</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title" data-i18n="footer_contact">Contact</p>
+      <ul class="footer-links">
+        <li><a href="mailto:info@todoslogistics.com">info@todoslogistics.com</a></li>
+        <li><a onclick="goPage('contact')" data-i18n="cta_consult">Request Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-i18n="footer_copy">© 2025 TODOS Logistics SRL. Dominican Republic. All rights reserved.</p>
+    <p data-i18n="footer_tagline_short">Connecting the world. Moving everything.</p>
+  </div>
+</footer>
+
+<script>
+  // ─── i18n ───
+  const translations = {
+    en: {
+      brand_todos: 'TODOS', brand_logistics: 'LOGISTICS',
+      nav_home: 'Home', nav_about: 'About', nav_services: 'Services',
+      nav_markets: 'Markets', nav_partnerships: 'Partnerships', nav_contact: 'Contact',
+      cta_consult: 'Request Consultation', cta_services: 'View Services', cta_partner: 'Discuss a Partnership', cta_inquire: 'Inquire About This Service',
+      hero_eyebrow: 'Dominican Republic · Caribbean · Global',
+      hero_sub: 'Global sourcing. Cross-border execution.',
+      hero_support: 'Coordinating international sourcing and cross-border logistics across the Caribbean and global markets.',
+      stat_corridors: 'Trade Corridors', stat_modes: 'Transport Modes', stat_corridor: 'Primary Corridor', stat_global: 'Global Sourcing',
+      cap_label: 'Core Capabilities', cap_title: 'What We Coordinate',
+      cap_body: 'TODOS Logistics provides end-to-end coordination across the full trade lifecycle — from procurement through final delivery.',
+      cap1_title: 'International Sourcing & Procurement', cap1_title_short: "Int'l Sourcing",
+      cap1_desc: 'Connecting buyers with global suppliers across Asia, Europe, and the Americas. We manage vendor coordination, documentation, and supply chain structure.',
+      cap2_title: 'Freight Brokerage & Global Routing', cap2_title_short: 'Freight Brokerage',
+      cap2_desc: 'Air and ocean freight coordination with optimized routing for cost and reliability. We work with established carriers to move cargo on your schedule.',
+      cap3_title: 'Cross-Border Ground Transport', cap3_title_short: 'Ground Transport',
+      cap3_desc: 'Specialized in the Dominican Republic–Haiti land corridor, providing structured ground logistics with border crossing coordination.',
+      cap4_title: 'Trade Facilitation & Compliance', cap4_title_short: 'Trade Compliance',
+      cap4_desc: 'Supporting importers and exporters with documentation, regulatory compliance, customs coordination, and trade procedure management.',
+      corr_label: 'Geographic Coverage', corr_title: 'Strategic Trade Corridors',
+      corr_body: 'Our operational focus spans key trade lanes in the Caribbean, with global sourcing reach across major supplier regions.',
+      corr1_country: 'Dominican Republic', corr1_desc: 'Primary base of operations. Full coordination of inbound and outbound freight, customs, and ground logistics.',
+      corr2_country: 'Haiti', corr2_desc: 'Active land border corridor. Structured ground transport and cross-border trade facilitation.',
+      corr3_country: 'United States', corr3_desc: 'Transshipment hub coordination and supplier linkage across major U.S. ports and inland distribution points.',
+      corr4_country: 'Asia & Europe', corr4_desc: 'International sourcing coordination from established manufacturing regions, including China, Southeast Asia, and key European suppliers.',
+      inst_label: 'Institutional Readiness', inst_title: 'Built for Structured Collaboration',
+      inst_body: 'TODOS Logistics is structured for accountable, documented, and reliable coordination across institutional counterparts in both public and private sectors.',
+      inst1_type: 'Private Enterprises', inst1_desc: 'Importers, exporters, manufacturers, and distributors seeking reliable logistics coordination and procurement support across Caribbean and global markets.',
+      inst2_type: 'Government Agencies', inst2_desc: 'Public sector entities requiring structured trade facilitation, cross-border coordination, and documented logistics processes for government procurement.',
+      inst3_type: 'NGOs & Aid Organizations', inst3_desc: 'Humanitarian and development organizations requiring reliable, documented supply chain coordination across the Dominican Republic–Haiti corridor.',
+      cta_strip_label: 'Ready to Move', cta_strip_title: "Let's Coordinate Your Next Shipment",
+      cta_strip_body: 'Whether you\'re importing goods, exporting regionally, or managing a complex cross-border corridor — TODOS Logistics is ready to structure a solution.',
+      about_h1: 'A Coordination-First Logistics Company',
+      about_hero_p: "We don't move freight ourselves — we orchestrate the people, systems, and partners that do.",
+      about_mission_label: 'Our Mission', about_mission_title: 'Connecting Trade. Reducing Friction.',
+      about_p1: 'TODOS Logistics was founded to address a persistent gap in Caribbean trade: the lack of structured, reliable coordination across complex cross-border supply chains. We operate as a logistics coordination company — not a carrier — focused on bringing discipline, documentation, and accountability to international sourcing and cross-border movement.',
+      about_p2: 'Our base of operations is the Dominican Republic, positioned at a critical intersection of Caribbean trade. The Dominican Republic–Haiti land corridor represents one of the region\'s most active — and most complex — cross-border trade routes, and it is where we have developed deep operational expertise.',
+      about_p3: 'As an asset-light operator, we work with established freight carriers, customs brokers, ground transport providers, and international suppliers. This model allows us to remain agile, cost-effective, and scalable — adapting our service structure to meet the specific requirements of each engagement.',
+      about_p4: 'TODOS Logistics is currently registered as an SRL in the Dominican Republic. We are designed from inception to operate within structured institutional environments, with full documentation and compliance at every stage of the trade process.',
+      about_diff_label: 'Our Approach', about_diff_title: 'What Sets Us Apart',
+      val1_title: 'Coordination Over Ownership', val1_desc: "Our asset-light model means we invest in relationships and expertise, not equipment. This translates to flexibility and lower overhead for our clients.",
+      val2_title: 'Compliance-First Operations', val2_desc: 'Every engagement is built around documented processes, proper regulatory adherence, and transparent reporting — requirements for institutional counterparts.',
+      val3_title: 'Regional Depth', val3_desc: 'Our understanding of Caribbean trade dynamics — particularly the DR-Haiti corridor — gives us an operational advantage that general logistics providers lack.',
+      val4_title: 'Institutional Credibility', val4_desc: 'Our structure, documentation practices, and operational discipline are designed for engagements with private enterprises, government agencies, and NGOs.',
+      services_h1: 'What We Do', services_hero_p: 'Four core service areas. One coordinated approach to international trade.',
+      s1_title: 'International Sourcing & Procurement Coordination',
+      s1_p1: 'We connect Caribbean-based importers with vetted international suppliers across Asia, Europe, and North America. Our role is to structure the sourcing process — identifying suppliers, coordinating samples and pricing, managing documentation, and ensuring supplier accountability throughout the procurement lifecycle.',
+      s1_p2: 'This service is particularly valuable for businesses that lack the in-house infrastructure to manage international supplier relationships directly.',
+      s1_f1: 'Supplier identification and vetting', s1_f2: 'RFQ coordination and price comparison', s1_f3: 'Purchase order and contract documentation', s1_f4: 'Pre-shipment coordination and quality oversight', s1_f5: 'Import documentation support',
+      s2_title: 'Freight Brokerage & Global Routing',
+      s2_p1: 'We coordinate air and ocean freight movement through established carrier relationships, selecting the optimal routing, transit time, and cost structure for each shipment. Our role is to manage the logistics coordination layer so our clients can focus on their business — not their supply chain.',
+      s2_p2: 'We maintain connections to freight providers across key corridors including US–Caribbean, Asia–Caribbean, and intra-Caribbean routes.',
+      s2_f1: 'Ocean freight (FCL and LCL)', s2_f2: 'Air freight coordination', s2_f3: 'Rate negotiation and carrier selection', s2_f4: 'Bill of lading and shipping documentation', s2_f5: 'Cargo tracking and status reporting',
+      s3_title: 'Cross-Border Ground Transport',
+      s3_p1: 'The Dominican Republic–Haiti land border corridor is one of the most commercially active — and operationally complex — trade routes in the Caribbean. TODOS Logistics specializes in structured cross-border coordination across this corridor, including ground transport, border documentation, and in-country delivery coordination.',
+      s3_p2: 'We work with established ground transport operators and border clearing agents to ensure documented, reliable movement of goods.',
+      s3_f1: 'DR–Haiti land border coordination', s3_f2: 'Ground transport provider management', s3_f3: 'Border crossing documentation', s3_f4: 'In-country last-mile coordination', s3_f5: 'Cargo security and chain-of-custody documentation',
+      s4_title: 'Trade Facilitation & Compliance Support',
+      s4_p1: 'International trade involves a significant documentation and regulatory burden. We provide coordination support across customs procedures, import/export documentation, and trade compliance — particularly for transactions involving the Dominican Republic and regional trade corridors.',
+      s4_p2: 'This service is particularly relevant for organizations entering new markets or managing high-volume trade with complex regulatory requirements.',
+      s4_f1: 'Customs documentation coordination', s4_f2: 'Import/export licensing support', s4_f3: 'Trade procedure advisory', s4_f4: 'Certificate of origin and compliance documentation', s4_f5: 'Regulatory coordination with local customs authorities',
+      markets_h1: 'Where We Operate', markets_hero_p: 'Caribbean-centered. Globally connected. Structured for trade across corridors that matter.',
+      markets_focus_label: 'Operational Regions', markets_focus_title: 'Trade Corridors & Markets',
+      markets_focus_body: "TODOS Logistics concentrates its coordination capabilities on the Caribbean's most commercially significant trade routes, while maintaining sourcing reach into global manufacturing and supply regions.",
+      m1_region: 'Dominican Republic', m1_detail: 'Primary operational base. The DR serves as our coordination hub for inbound freight, outbound export, and regional distribution. We coordinate across Santo Domingo, Santiago, and key port facilities including Puerto de Haina and Puerto de Caucedo.',
+      m2_region: 'Haiti', m2_detail: 'Active market via the DR–Haiti land border corridor. We coordinate formal trade across the Dajabón–Ouanaminthe and Jimani–Malpasse crossings, supporting both private commercial trade and NGO supply chains.',
+      m3_region: 'United States', m3_detail: 'Key origin and transshipment market for Caribbean imports. We coordinate through Miami, New York/NJ, and other U.S. port gateways for ocean and air freight destined for the Caribbean.',
+      m4_region: 'Asia Pacific', m4_detail: 'Primary sourcing region for manufactured goods. We coordinate procurement from China, Vietnam, South Korea, and other established manufacturing centers across the region.',
+      m5_region: 'Europe', m5_detail: 'Specialized sourcing for industrial goods, equipment, and premium products from European suppliers, with coordination from key ports including Rotterdam, Hamburg, and Barcelona.',
+      m6_region: 'Caribbean Region', m6_detail: 'Intra-Caribbean trade coordination across CARICOM markets and neighboring island nations. We provide connections and coordination for broader regional expansion as client needs evolve.',
+      markets_why_label: 'Why the Caribbean', markets_why_title: 'A Region With Structural Trade Needs',
+      markets_why_p1: 'The Caribbean is heavily import-dependent, with limited domestic manufacturing capacity and strong demand for coordinated logistics infrastructure. Most Caribbean nations rely on external sourcing for a significant portion of their consumable and industrial goods.',
+      markets_why_p2: 'At the same time, cross-border trade — particularly between the Dominican Republic and Haiti — remains one of the region\'s most commercially active but logistically underserved corridors. This is where TODOS Logistics is positioned to have the greatest impact.',
+      markets_why_p3: "The Dominican Republic's strategic position — at the center of Caribbean shipping lanes, adjacent to Haiti, and well-connected to U.S. and European trade routes — makes it an ideal base for a coordination-focused logistics operator.",
+      markets_why_p4: 'We understand the regulatory environment, the operational challenges, and the institutional requirements of this market in a way that general logistics providers typically do not.',
+      partners_h1: 'Working With Structured Counterparts', partners_hero_p: 'We are built for accountable, documented collaboration with organizations that require reliable logistics coordination.',
+      partners_who_label: 'Who We Work With', partners_who_title: 'Three Institutional Audiences',
+      partners_who_body: 'TODOS Logistics is designed to serve organizations across the public, private, and civil society sectors — with a consistent commitment to operational discipline and transparency.',
+      pt1_type: 'Private Enterprises', pt1_desc: 'We work with importers, exporters, distributors, and manufacturers who need structured logistics coordination without the overhead of an in-house logistics team.',
+      pt1_b1: 'Caribbean-based importers and distributors', pt1_b2: 'Manufacturers sourcing from international suppliers', pt1_b3: 'Exporters accessing Caribbean and regional markets', pt1_b4: 'Trading companies managing multi-corridor supply chains',
+      pt2_type: 'Government Agencies', pt2_desc: 'We support public sector procurement and logistics coordination with full documentation, compliance, and process transparency required for government engagements.',
+      pt2_b1: 'Government procurement and supply chain offices', pt2_b2: 'Public sector infrastructure projects requiring international sourcing', pt2_b3: 'Border management and trade facilitation agencies', pt2_b4: 'Ministries coordinating cross-border trade policy implementation',
+      pt3_type: 'NGOs & Aid Organizations', pt3_desc: 'Humanitarian and development organizations operating in the Caribbean — particularly in Haiti — require logistics partners who understand the corridor and can deliver with documentation and accountability.',
+      pt3_b1: 'Humanitarian supply chain coordination (DR–Haiti corridor)', pt3_b2: 'Development program procurement support', pt3_b3: 'Emergency logistics coordination and routing', pt3_b4: 'Full chain-of-custody documentation for donor compliance',
+      partners_cta_label: 'Start a Conversation', partners_cta_title: 'Ready to Coordinate?',
+      partners_cta_body: 'Whether you represent a private organization, a government agency, or an NGO — we welcome the opportunity to discuss how TODOS Logistics can support your trade and logistics requirements.',
+      contact_h1: 'Get in Touch', contact_hero_p: 'Ready to discuss your logistics requirements? We respond to all inquiries within one business day.',
+      contact_info_label: 'Contact Information', contact_info_title: 'TODOS Logistics',
+      contact_email_label: 'Email', contact_entity_label: 'Entity', contact_entity_val: 'Dominican Republic (SRL)',
+      contact_ops_label: 'Primary Operations', contact_ops_val: 'Dominican Republic · Haiti Corridor · Caribbean',
+      contact_response_label: 'Response Time', contact_response_val: 'Within 1 business day',
+      contact_notice: 'All inquiries are handled confidentially. We do not share client information with third parties.',
+      contact_form_label: 'Consultation Request',
+      form_name: 'Full Name', form_org: 'Organization', form_email: 'Email Address', form_phone: 'Phone Number',
+      form_service: 'Service Needed', form_service_default: 'Select a service...',
+      form_s1: 'International Sourcing & Procurement', form_s2: 'Freight Brokerage & Global Routing',
+      form_s3: 'Cross-Border Ground Transport', form_s4: 'Trade Facilitation & Compliance',
+      form_s5: 'Multiple Services', form_s6: 'Other / Not Sure',
+      form_message: 'Message', form_submit: 'Send Inquiry →',
+      form_success: 'Thank you for your inquiry. A TODOS Logistics representative will respond within one business day.',
+      footer_tagline: 'Coordinating international sourcing and cross-border logistics across the Caribbean and beyond.',
+      footer_company: 'Company', footer_services: 'Services', footer_contact: 'Contact',
+      footer_copy: '© 2025 TODOS Logistics SRL. Dominican Republic. All rights reserved.',
+      footer_tagline_short: 'Connecting the world. Moving everything.'
+    },
+    es: {
+      brand_todos: 'TODOS', brand_logistics: 'LOGISTICS',
+      nav_home: 'Inicio', nav_about: 'Nosotros', nav_services: 'Servicios',
+      nav_markets: 'Mercados', nav_partnerships: 'Alianzas', nav_contact: 'Contacto',
+      cta_consult: 'Solicitar Consulta', cta_services: 'Ver Servicios', cta_partner: 'Explorar Alianza', cta_inquire: 'Consultar Sobre Este Servicio',
+      hero_eyebrow: 'República Dominicana · Caribe · Global',
+      hero_sub: 'Abastecimiento global. Ejecución transfronteriza.',
+      hero_support: 'Coordinamos el abastecimiento internacional y la logística transfronteriza en el Caribe y mercados globales.',
+      stat_corridors: 'Corredores Comerciales', stat_modes: 'Modos de Transporte', stat_corridor: 'Corredor Principal', stat_global: 'Abastecimiento Global',
+      cap_label: 'Capacidades Principales', cap_title: 'Lo Que Coordinamos',
+      cap_body: 'TODOS Logistics ofrece coordinación integral en todo el ciclo comercial — desde la adquisición hasta la entrega final.',
+      cap1_title: 'Abastecimiento y Adquisición Internacional', cap1_title_short: 'Abastecimiento Int\'l',
+      cap1_desc: 'Conectamos compradores con proveedores globales en Asia, Europa y América. Gestionamos la coordinación de vendedores, documentación y estructura de la cadena de suministro.',
+      cap2_title: 'Correduría de Carga y Rutas Globales', cap2_title_short: 'Correduría de Carga',
+      cap2_desc: 'Coordinación de carga aérea y marítima con rutas optimizadas para costo y confiabilidad. Trabajamos con transportistas establecidos.',
+      cap3_title: 'Transporte Terrestre Transfronterizo', cap3_title_short: 'Transporte Terrestre',
+      cap3_desc: 'Especializados en el corredor terrestre República Dominicana–Haití, con logística estructurada y coordinación de cruce fronterizo.',
+      cap4_title: 'Facilitación Comercial y Cumplimiento', cap4_title_short: 'Cumplimiento Comercial',
+      cap4_desc: 'Apoyamos a importadores y exportadores con documentación, cumplimiento normativo, coordinación aduanera y gestión de procedimientos comerciales.',
+      corr_label: 'Cobertura Geográfica', corr_title: 'Corredores Comerciales Estratégicos',
+      corr_body: 'Nuestro enfoque operativo abarca los principales corredores comerciales del Caribe, con alcance global de abastecimiento.',
+      corr1_country: 'República Dominicana', corr1_desc: 'Base principal de operaciones. Coordinación completa de carga entrante y saliente, aduanas y logística terrestre.',
+      corr2_country: 'Haití', corr2_desc: 'Corredor fronterizo terrestre activo. Transporte terrestre estructurado y facilitación del comercio transfronterizo.',
+      corr3_country: 'Estados Unidos', corr3_desc: 'Coordinación de centros de transbordo y enlace con proveedores a través de principales puertos estadounidenses.',
+      corr4_country: 'Asia y Europa', corr4_desc: 'Coordinación de abastecimiento internacional desde regiones manufactureras establecidas, incluyendo China, Sudeste Asiático y proveedores europeos clave.',
+      inst_label: 'Preparación Institucional', inst_title: 'Diseñados para la Colaboración Estructurada',
+      inst_body: 'TODOS Logistics está estructurado para una coordinación responsable, documentada y confiable con contrapartes institucionales en sectores público y privado.',
+      inst1_type: 'Empresas Privadas', inst1_desc: 'Importadores, exportadores, fabricantes y distribuidores que buscan coordinación logística confiable y apoyo en adquisiciones.',
+      inst2_type: 'Entidades Gubernamentales', inst2_desc: 'Entidades del sector público que requieren facilitación comercial estructurada, coordinación transfronteriza y procesos logísticos documentados.',
+      inst3_type: 'ONGs y Organizaciones Humanitarias', inst3_desc: 'Organizaciones humanitarias y de desarrollo que requieren coordinación de cadena de suministro confiable y documentada en el corredor RD–Haití.',
+      cta_strip_label: 'Listos para Mover', cta_strip_title: 'Coordinemos Su Próximo Envío',
+      cta_strip_body: 'Ya sea que importe mercancía, exporte regionalmente o administre un corredor transfronterizo complejo — TODOS Logistics está listo para estructurar una solución.',
+      about_h1: 'Una Empresa de Logística Orientada a la Coordinación',
+      about_hero_p: 'No movemos la carga nosotros mismos — orquestamos las personas, sistemas y socios que lo hacen.',
+      about_mission_label: 'Nuestra Misión', about_mission_title: 'Conectando el Comercio. Reduciendo la Fricción.',
+      about_p1: 'TODOS Logistics fue fundada para abordar una brecha persistente en el comercio caribeño: la falta de coordinación estructurada y confiable en cadenas de suministro transfronterizas complejas.',
+      about_p2: 'Nuestra base de operaciones es la República Dominicana, posicionada en una intersección crítica del comercio caribeño. El corredor terrestre RD–Haití representa una de las rutas comerciales transfronterizas más activas y complejas de la región.',
+      about_p3: 'Como operador de activos ligeros, trabajamos con transportistas de carga, agentes aduaneros, proveedores de transporte terrestre y proveedores internacionales establecidos. Este modelo nos permite ser ágiles, rentables y escalables.',
+      about_p4: 'TODOS Logistics está actualmente registrada como SRL en la República Dominicana. Estamos diseñados desde el inicio para operar dentro de entornos institucionales estructurados, con documentación completa y cumplimiento en cada etapa.',
+      about_diff_label: 'Nuestro Enfoque', about_diff_title: 'Lo Que Nos Diferencia',
+      val1_title: 'Coordinación Sobre Propiedad', val1_desc: 'Nuestro modelo de activos ligeros significa que invertimos en relaciones y experiencia, no en equipos. Esto se traduce en flexibilidad y menor costo para nuestros clientes.',
+      val2_title: 'Operaciones con Cumplimiento Primero', val2_desc: 'Cada compromiso está construido sobre procesos documentados, adherencia regulatoria adecuada e informes transparentes.',
+      val3_title: 'Profundidad Regional', val3_desc: 'Nuestra comprensión de las dinámicas comerciales del Caribe — particularmente el corredor RD-Haití — nos da una ventaja operativa que los proveedores de logística general no tienen.',
+      val4_title: 'Credibilidad Institucional', val4_desc: 'Nuestra estructura, prácticas de documentación y disciplina operativa están diseñadas para compromisos con empresas privadas, agencias gubernamentales y ONGs.',
+      services_h1: 'Lo Que Hacemos', services_hero_p: 'Cuatro áreas de servicio principales. Un enfoque coordinado al comercio internacional.',
+      s1_title: 'Abastecimiento y Coordinación de Adquisiciones Internacionales',
+      s1_p1: 'Conectamos importadores del Caribe con proveedores internacionales verificados en Asia, Europa y América del Norte. Nuestro rol es estructurar el proceso de abastecimiento.',
+      s1_p2: 'Este servicio es particularmente valioso para empresas que carecen de infraestructura interna para gestionar directamente las relaciones con proveedores internacionales.',
+      s1_f1: 'Identificación y verificación de proveedores', s1_f2: 'Coordinación de RFQ y comparación de precios', s1_f3: 'Documentación de órdenes de compra y contratos', s1_f4: 'Coordinación pre-envío y supervisión de calidad', s1_f5: 'Apoyo en documentación de importación',
+      s2_title: 'Correduría de Carga y Rutas Globales',
+      s2_p1: 'Coordinamos el movimiento de carga aérea y marítima a través de relaciones establecidas con transportistas, seleccionando la ruta óptima, tiempo de tránsito y estructura de costos para cada envío.',
+      s2_p2: 'Mantenemos conexiones con proveedores de carga en corredores clave incluyendo EEUU–Caribe, Asia–Caribe y rutas intra-caribeñas.',
+      s2_f1: 'Carga marítima (FCL y LCL)', s2_f2: 'Coordinación de carga aérea', s2_f3: 'Negociación de tarifas y selección de transportista', s2_f4: 'Conocimiento de embarque y documentación de envío', s2_f5: 'Seguimiento de carga e informes de estado',
+      s3_title: 'Transporte Terrestre Transfronterizo',
+      s3_p1: 'El corredor fronterizo terrestre RD–Haití es una de las rutas comerciales más activas y operativamente complejas del Caribe. TODOS Logistics se especializa en coordinación transfronteriza estructurada.',
+      s3_p2: 'Trabajamos con operadores de transporte terrestre y agentes de despacho fronterizo para garantizar el movimiento documentado y confiable de mercancías.',
+      s3_f1: 'Coordinación fronteriza terrestre RD–Haití', s3_f2: 'Gestión de proveedores de transporte terrestre', s3_f3: 'Documentación de cruce fronterizo', s3_f4: 'Coordinación de última milla en el país', s3_f5: 'Documentación de seguridad de carga y cadena de custodia',
+      s4_title: 'Facilitación Comercial y Apoyo en Cumplimiento',
+      s4_p1: 'El comercio internacional implica una carga significativa de documentación y regulación. Proporcionamos apoyo de coordinación en procedimientos aduaneros, documentación de importación/exportación y cumplimiento comercial.',
+      s4_p2: 'Este servicio es particularmente relevante para organizaciones que ingresan a nuevos mercados o gestionan comercio de alto volumen con requisitos regulatorios complejos.',
+      s4_f1: 'Coordinación de documentación aduanera', s4_f2: 'Apoyo en licencias de importación/exportación', s4_f3: 'Asesoría en procedimientos comerciales', s4_f4: 'Certificado de origen y documentación de cumplimiento', s4_f5: 'Coordinación regulatoria con autoridades aduaneras locales',
+      markets_h1: 'Dónde Operamos', markets_hero_p: 'Centrados en el Caribe. Conectados globalmente. Estructurados para el comercio en los corredores que importan.',
+      markets_focus_label: 'Regiones Operativas', markets_focus_title: 'Corredores Comerciales y Mercados',
+      markets_focus_body: 'TODOS Logistics concentra sus capacidades de coordinación en las rutas comerciales más significativas del Caribe, manteniendo alcance de abastecimiento en regiones de fabricación global.',
+      m1_region: 'República Dominicana', m1_detail: 'Base operativa principal. La RD sirve como nuestro centro de coordinación para carga entrante, exportaciones y distribución regional.',
+      m2_region: 'Haití', m2_detail: 'Mercado activo a través del corredor fronterizo terrestre RD–Haití. Coordinamos comercio formal a través de los cruces de Dajabón–Ouanaminthe y Jimani–Malpasse.',
+      m3_region: 'Estados Unidos', m3_detail: 'Mercado clave de origen y transbordo para importaciones al Caribe. Coordinamos a través de Miami, Nueva York/NJ y otras puertas de entrada portuarias de EEUU.',
+      m4_region: 'Asia Pacífico', m4_detail: 'Región principal de abastecimiento para bienes manufacturados. Coordinamos adquisiciones de China, Vietnam, Corea del Sur y otros centros de fabricación establecidos.',
+      m5_region: 'Europa', m5_detail: 'Abastecimiento especializado para bienes industriales, equipos y productos premium de proveedores europeos, con coordinación desde Rotterdam, Hamburgo y Barcelona.',
+      m6_region: 'Región Caribeña', m6_detail: 'Coordinación de comercio intra-caribeño en mercados CARICOM y naciones insulares vecinas.',
+      markets_why_label: 'Por Qué el Caribe', markets_why_title: 'Una Región con Necesidades Comerciales Estructurales',
+      markets_why_p1: 'El Caribe es altamente dependiente de importaciones, con capacidad manufacturera doméstica limitada y fuerte demanda de infraestructura logística coordinada.',
+      markets_why_p2: 'Al mismo tiempo, el comercio transfronterizo — particularmente entre la República Dominicana y Haití — sigue siendo uno de los corredores más activos pero menos atendidos logísticamente de la región.',
+      markets_why_p3: 'La posición estratégica de la República Dominicana — en el centro de las rutas marítimas del Caribe, adyacente a Haití y bien conectada con rutas comerciales de EEUU y Europa — la hace una base ideal.',
+      markets_why_p4: 'Entendemos el entorno regulatorio, los desafíos operativos y los requisitos institucionales de este mercado de una manera que los proveedores de logística general típicamente no tienen.',
+      partners_h1: 'Trabajando con Contrapartes Estructuradas', partners_hero_p: 'Estamos diseñados para la colaboración responsable y documentada con organizaciones que requieren coordinación logística confiable.',
+      partners_who_label: 'Con Quiénes Trabajamos', partners_who_title: 'Tres Audiencias Institucionales',
+      partners_who_body: 'TODOS Logistics está diseñado para servir a organizaciones en los sectores público, privado y de la sociedad civil — con un compromiso constante con la disciplina operativa y la transparencia.',
+      pt1_type: 'Empresas Privadas', pt1_desc: 'Trabajamos con importadores, exportadores, distribuidores y fabricantes que necesitan coordinación logística estructurada sin la carga de un equipo logístico interno.',
+      pt1_b1: 'Importadores y distribuidores con base en el Caribe', pt1_b2: 'Fabricantes que se abastecen de proveedores internacionales', pt1_b3: 'Exportadores que acceden a mercados del Caribe y regionales', pt1_b4: 'Empresas comerciales que gestionan cadenas de suministro multi-corredor',
+      pt2_type: 'Entidades Gubernamentales', pt2_desc: 'Apoyamos las adquisiciones y coordinación logística del sector público con documentación completa y transparencia de procesos.',
+      pt2_b1: 'Oficinas de adquisiciones y cadena de suministro gubernamental', pt2_b2: 'Proyectos de infraestructura del sector público con abastecimiento internacional', pt2_b3: 'Agencias de gestión fronteriza y facilitación comercial', pt2_b4: 'Ministerios que coordinan la implementación de políticas comerciales transfronterizas',
+      pt3_type: 'ONGs y Organizaciones Humanitarias', pt3_desc: 'Las organizaciones humanitarias y de desarrollo que operan en el Caribe requieren socios logísticos que entiendan el corredor y puedan entregar con documentación y responsabilidad.',
+      pt3_b1: 'Coordinación de cadena de suministro humanitario (corredor RD–Haití)', pt3_b2: 'Apoyo en adquisiciones para programas de desarrollo', pt3_b3: 'Coordinación y enrutamiento de logística de emergencia', pt3_b4: 'Documentación completa de cadena de custodia para cumplimiento con donantes',
+      partners_cta_label: 'Iniciar una Conversación', partners_cta_title: '¿Listo para Coordinar?',
+      partners_cta_body: 'Ya sea que represente una organización privada, una agencia gubernamental o una ONG — damos la bienvenida a la oportunidad de discutir cómo TODOS Logistics puede apoyar sus requisitos.',
+      contact_h1: 'Contáctenos', contact_hero_p: '¿Listo para discutir sus requisitos logísticos? Respondemos todas las consultas dentro de un día hábil.',
+      contact_info_label: 'Información de Contacto', contact_info_title: 'TODOS Logistics',
+      contact_email_label: 'Correo Electrónico', contact_entity_label: 'Entidad', contact_entity_val: 'República Dominicana (SRL)',
+      contact_ops_label: 'Operaciones Principales', contact_ops_val: 'República Dominicana · Corredor Haití · Caribe',
+      contact_response_label: 'Tiempo de Respuesta', contact_response_val: 'Dentro de 1 día hábil',
+      contact_notice: 'Todas las consultas se manejan de forma confidencial. No compartimos información de clientes con terceros.',
+      contact_form_label: 'Solicitud de Consulta',
+      form_name: 'Nombre Completo', form_org: 'Organización', form_email: 'Correo Electrónico', form_phone: 'Número de Teléfono',
+      form_service: 'Servicio Requerido', form_service_default: 'Seleccione un servicio...',
+      form_s1: 'Abastecimiento y Adquisiciones Internacionales', form_s2: 'Correduría de Carga y Rutas Globales',
+      form_s3: 'Transporte Terrestre Transfronterizo', form_s4: 'Facilitación Comercial y Cumplimiento',
+      form_s5: 'Múltiples Servicios', form_s6: 'Otro / No Estoy Seguro',
+      form_message: 'Mensaje', form_submit: 'Enviar Consulta →',
+      form_success: 'Gracias por su consulta. Un representante de TODOS Logistics responderá dentro de un día hábil.',
+      footer_tagline: 'Coordinando el abastecimiento internacional y la logística transfronteriza en el Caribe y más allá.',
+      footer_company: 'Empresa', footer_services: 'Servicios', footer_contact: 'Contacto',
+      footer_copy: '© 2025 TODOS Logistics SRL. República Dominicana. Todos los derechos reservados.',
+      footer_tagline_short: 'Conectando el mundo. Moviendo todo.'
+    },
+    fr: {
+      brand_todos: 'TODOS', brand_logistics: 'LOGISTICS',
+      nav_home: 'Accueil', nav_about: 'À propos', nav_services: 'Services',
+      nav_markets: 'Marchés', nav_partnerships: 'Partenariats', nav_contact: 'Contact',
+      cta_consult: 'Demander une consultation', cta_services: 'Voir les services', cta_partner: 'Discuter un partenariat', cta_inquire: 'Renseignez-vous sur ce service',
+      hero_eyebrow: 'République Dominicaine · Caraïbes · Mondial',
+      hero_sub: 'Approvisionnement mondial. Exécution transfrontalière.',
+      hero_support: 'Coordination de l\'approvisionnement international et de la logistique transfrontalière dans les Caraïbes et les marchés mondiaux.',
+      stat_corridors: 'Corridors commerciaux', stat_modes: 'Modes de transport', stat_corridor: 'Corridor principal', stat_global: 'Approvisionnement mondial',
+      cap_label: 'Capacités principales', cap_title: 'Ce que nous coordonnons',
+      cap_body: 'TODOS Logistics fournit une coordination de bout en bout sur l\'ensemble du cycle commercial — de l\'approvisionnement à la livraison finale.',
+      cap1_title: 'Approvisionnement et acquisitions internationaux', cap1_title_short: "Approvisionnement int'l",
+      cap1_desc: 'Mise en relation des acheteurs avec des fournisseurs mondiaux en Asie, Europe et Amériques. Nous gérons la coordination des vendeurs, la documentation et la structure de la chaîne d\'approvisionnement.',
+      cap2_title: 'Courtage de fret et routage mondial', cap2_title_short: 'Courtage de fret',
+      cap2_desc: 'Coordination du fret aérien et maritime avec des itinéraires optimisés pour le coût et la fiabilité. Nous travaillons avec des transporteurs établis.',
+      cap3_title: 'Transport terrestre transfrontalier', cap3_title_short: 'Transport terrestre',
+      cap3_desc: 'Spécialisés dans le corridor terrestre République Dominicaine–Haïti, avec une logistique structurée et une coordination des passages aux frontières.',
+      cap4_title: 'Facilitation du commerce et conformité', cap4_title_short: 'Conformité commerciale',
+      cap4_desc: 'Soutien aux importateurs et exportateurs avec la documentation, la conformité réglementaire, la coordination douanière et la gestion des procédures commerciales.',
+      corr_label: 'Couverture géographique', corr_title: 'Corridors commerciaux stratégiques',
+      corr_body: 'Notre focus opérationnel couvre les principales voies commerciales des Caraïbes, avec une portée mondiale d\'approvisionnement.',
+      corr1_country: 'République Dominicaine', corr1_desc: 'Base d\'opérations principale. Coordination complète du fret entrant et sortant, des douanes et de la logistique terrestre.',
+      corr2_country: 'Haïti', corr2_desc: 'Corridor frontalier terrestre actif. Transport terrestre structuré et facilitation du commerce transfrontalier.',
+      corr3_country: 'États-Unis', corr3_desc: 'Coordination des centres de transbordement et liaison avec les fournisseurs dans les principaux ports américains.',
+      corr4_country: 'Asie et Europe', corr4_desc: 'Coordination de l\'approvisionnement international depuis des régions manufacturières établies, notamment la Chine, l\'Asie du Sud-Est et les fournisseurs européens clés.',
+      inst_label: 'Préparation institutionnelle', inst_title: 'Conçu pour la collaboration structurée',
+      inst_body: 'TODOS Logistics est structuré pour une coordination responsable, documentée et fiable avec des contreparties institutionnelles dans les secteurs public et privé.',
+      inst1_type: 'Entreprises privées', inst1_desc: 'Importateurs, exportateurs, fabricants et distributeurs cherchant une coordination logistique fiable et un soutien aux acquisitions.',
+      inst2_type: 'Agences gouvernementales', inst2_desc: 'Entités du secteur public nécessitant une facilitation commerciale structurée, une coordination transfrontalière et des processus logistiques documentés.',
+      inst3_type: 'ONG et organisations humanitaires', inst3_desc: 'Organisations humanitaires et de développement nécessitant une coordination fiable de la chaîne d\'approvisionnement dans le corridor RD–Haïti.',
+      cta_strip_label: 'Prêts à déplacer', cta_strip_title: 'Coordonnons votre prochain envoi',
+      cta_strip_body: 'Que vous importiez des marchandises, exportiez régionalement ou gériez un corridor transfrontalier complexe — TODOS Logistics est prêt à structurer une solution.',
+      about_h1: 'Une entreprise logistique axée sur la coordination',
+      about_hero_p: 'Nous ne déplaçons pas le fret nous-mêmes — nous orchestrons les personnes, systèmes et partenaires qui le font.',
+      about_mission_label: 'Notre mission', about_mission_title: 'Connecter le commerce. Réduire les frictions.',
+      about_p1: 'TODOS Logistics a été fondée pour combler une lacune persistante dans le commerce caribéen : l\'absence de coordination structurée et fiable dans les chaînes d\'approvisionnement transfrontalières complexes.',
+      about_p2: 'Notre base d\'opérations est la République Dominicaine, positionnée à une intersection critique du commerce caribéen. Le corridor terrestre RD–Haïti représente l\'une des routes commerciales transfrontalières les plus actives et complexes de la région.',
+      about_p3: 'En tant qu\'opérateur léger en actifs, nous travaillons avec des transporteurs de fret, des courtiers en douane, des prestataires de transport terrestre et des fournisseurs internationaux établis.',
+      about_p4: 'TODOS Logistics est actuellement enregistrée en tant que SRL en République Dominicaine. Nous sommes conçus dès le départ pour opérer dans des environnements institutionnels structurés.',
+      about_diff_label: 'Notre approche', about_diff_title: 'Ce qui nous différencie',
+      val1_title: 'Coordination plutôt que propriété', val1_desc: 'Notre modèle léger en actifs signifie que nous investissons dans les relations et l\'expertise, pas dans les équipements. Cela se traduit par de la flexibilité pour nos clients.',
+      val2_title: 'Opérations axées sur la conformité', val2_desc: 'Chaque engagement est construit autour de processus documentés, d\'une adhésion réglementaire adéquate et de rapports transparents.',
+      val3_title: 'Profondeur régionale', val3_desc: 'Notre compréhension des dynamiques commerciales des Caraïbes — notamment le corridor RD-Haïti — nous donne un avantage opérationnel que les prestataires logistiques généraux n\'ont pas.',
+      val4_title: 'Crédibilité institutionnelle', val4_desc: 'Notre structure, nos pratiques de documentation et notre discipline opérationnelle sont conçues pour des engagements avec des entreprises privées, des agences gouvernementales et des ONG.',
+      services_h1: 'Ce que nous faisons', services_hero_p: 'Quatre domaines de service principaux. Une approche coordonnée du commerce international.',
+      s1_title: 'Coordination de l\'approvisionnement et des acquisitions internationaux',
+      s1_p1: 'Nous connectons les importateurs caribéens avec des fournisseurs internationaux vérifiés en Asie, Europe et Amérique du Nord. Notre rôle est de structurer le processus d\'approvisionnement.',
+      s1_p2: 'Ce service est particulièrement précieux pour les entreprises qui manquent d\'infrastructure interne pour gérer directement les relations avec les fournisseurs internationaux.',
+      s1_f1: 'Identification et vérification des fournisseurs', s1_f2: 'Coordination des appels d\'offres et comparaison des prix', s1_f3: 'Documentation des bons de commande et contrats', s1_f4: 'Coordination préalable à l\'expédition et supervision de la qualité', s1_f5: 'Soutien à la documentation d\'importation',
+      s2_title: 'Courtage de fret et routage mondial',
+      s2_p1: 'Nous coordonnons le mouvement du fret aérien et maritime à travers des relations établies avec les transporteurs, en sélectionnant le routage optimal.',
+      s2_p2: 'Nous maintenons des connexions avec des prestataires de fret sur des corridors clés incluant États-Unis–Caraïbes, Asie–Caraïbes et routes intra-caribéennes.',
+      s2_f1: 'Fret maritime (FCL et LCL)', s2_f2: 'Coordination du fret aérien', s2_f3: 'Négociation des tarifs et sélection du transporteur', s2_f4: 'Connaissement et documentation d\'expédition', s2_f5: 'Suivi de la cargaison et rapports d\'état',
+      s3_title: 'Transport terrestre transfrontalier',
+      s3_p1: 'Le corridor frontalier terrestre RD–Haïti est l\'une des routes commerciales les plus actives et complexes des Caraïbes. TODOS Logistics se spécialise dans la coordination transfrontalière structurée.',
+      s3_p2: 'Nous travaillons avec des opérateurs de transport terrestre et des agents de dédouanement frontalier pour assurer le mouvement documenté et fiable des marchandises.',
+      s3_f1: 'Coordination de la frontière terrestre RD–Haïti', s3_f2: 'Gestion des prestataires de transport terrestre', s3_f3: 'Documentation de passage aux frontières', s3_f4: 'Coordination du dernier kilomètre dans le pays', s3_f5: 'Sécurité de la cargaison et documentation de la chaîne de traçabilité',
+      s4_title: 'Facilitation du commerce et soutien à la conformité',
+      s4_p1: 'Le commerce international implique une charge importante de documentation et de réglementation. Nous fournissons un soutien à la coordination dans les procédures douanières et la conformité commerciale.',
+      s4_p2: 'Ce service est particulièrement pertinent pour les organisations entrant dans de nouveaux marchés ou gérant un commerce à volume élevé avec des exigences réglementaires complexes.',
+      s4_f1: 'Coordination de la documentation douanière', s4_f2: 'Soutien aux licences d\'importation/exportation', s4_f3: 'Conseil sur les procédures commerciales', s4_f4: 'Certificat d\'origine et documentation de conformité', s4_f5: 'Coordination réglementaire avec les autorités douanières locales',
+      markets_h1: 'Où nous opérons', markets_hero_p: 'Centré sur les Caraïbes. Connecté mondialement. Structuré pour le commerce sur les corridors qui comptent.',
+      markets_focus_label: 'Régions opérationnelles', markets_focus_title: 'Corridors commerciaux et marchés',
+      markets_focus_body: 'TODOS Logistics concentre ses capacités de coordination sur les routes commerciales les plus significatives des Caraïbes, tout en maintenant une portée d\'approvisionnement dans les régions de fabrication mondiales.',
+      m1_region: 'République Dominicaine', m1_detail: 'Base opérationnelle principale. La RD sert de hub de coordination pour le fret entrant, les exportations et la distribution régionale.',
+      m2_region: 'Haïti', m2_detail: 'Marché actif via le corridor frontalier terrestre RD–Haïti. Nous coordonnons le commerce formel aux passages de Dajabón–Ouanaminthe et Jimani–Malpasse.',
+      m3_region: 'États-Unis', m3_detail: 'Marché clé d\'origine et de transbordement pour les importations caribéennes. Nous coordonnons via Miami, New York/NJ et d\'autres ports américains.',
+      m4_region: 'Asie Pacifique', m4_detail: 'Région principale d\'approvisionnement pour les biens manufacturés. Nous coordonnons les acquisitions de Chine, Vietnam, Corée du Sud et autres centres de fabrication.',
+      m5_region: 'Europe', m5_detail: 'Approvisionnement spécialisé en biens industriels, équipements et produits premium auprès de fournisseurs européens, avec coordination depuis Rotterdam, Hambourg et Barcelone.',
+      m6_region: 'Région caribéenne', m6_detail: 'Coordination du commerce intra-caribéen sur les marchés CARICOM et les nations insulaires voisines.',
+      markets_why_label: 'Pourquoi les Caraïbes', markets_why_title: 'Une région avec des besoins commerciaux structurels',
+      markets_why_p1: 'Les Caraïbes sont fortement dépendantes des importations, avec une capacité manufacturière domestique limitée et une forte demande d\'infrastructure logistique coordonnée.',
+      markets_why_p2: 'En même temps, le commerce transfrontalier — particulièrement entre la République Dominicaine et Haïti — reste l\'un des corridors les plus actifs mais les moins desservis logistiquement de la région.',
+      markets_why_p3: 'La position stratégique de la République Dominicaine — au centre des routes maritimes caribéennes, adjacente à Haïti et bien connectée aux routes commerciales américaines et européennes — en fait une base idéale.',
+      markets_why_p4: 'Nous comprenons l\'environnement réglementaire, les défis opérationnels et les exigences institutionnelles de ce marché d\'une manière que les prestataires logistiques généraux n\'ont généralement pas.',
+      partners_h1: 'Travailler avec des contreparties structurées', partners_hero_p: 'Nous sommes conçus pour une collaboration responsable et documentée avec des organisations qui nécessitent une coordination logistique fiable.',
+      partners_who_label: 'Avec qui nous travaillons', partners_who_title: 'Trois audiences institutionnelles',
+      partners_who_body: 'TODOS Logistics est conçu pour servir des organisations dans les secteurs public, privé et de la société civile — avec un engagement constant envers la discipline opérationnelle et la transparence.',
+      pt1_type: 'Entreprises privées', pt1_desc: 'Nous travaillons avec des importateurs, exportateurs, distributeurs et fabricants qui ont besoin d\'une coordination logistique structurée.',
+      pt1_b1: 'Importateurs et distributeurs basés dans les Caraïbes', pt1_b2: 'Fabricants s\'approvisionnant auprès de fournisseurs internationaux', pt1_b3: 'Exportateurs accédant aux marchés caribéens et régionaux', pt1_b4: 'Sociétés de négoce gérant des chaînes d\'approvisionnement multi-corridors',
+      pt2_type: 'Agences gouvernementales', pt2_desc: 'Nous soutenons les acquisitions et la coordination logistique du secteur public avec une documentation complète et une transparence des processus.',
+      pt2_b1: 'Bureaux d\'approvisionnement et de chaîne d\'approvisionnement gouvernementaux', pt2_b2: 'Projets d\'infrastructure du secteur public nécessitant un approvisionnement international', pt2_b3: 'Agences de gestion des frontières et de facilitation du commerce', pt2_b4: 'Ministères coordonnant la mise en œuvre des politiques commerciales transfrontalières',
+      pt3_type: 'ONG et organisations humanitaires', pt3_desc: 'Les organisations humanitaires et de développement opérant dans les Caraïbes — particulièrement en Haïti — nécessitent des partenaires logistiques qui comprennent le corridor.',
+      pt3_b1: 'Coordination de la chaîne d\'approvisionnement humanitaire (corridor RD–Haïti)', pt3_b2: 'Soutien aux acquisitions pour les programmes de développement', pt3_b3: 'Coordination et routage de la logistique d\'urgence', pt3_b4: 'Documentation complète de la chaîne de traçabilité pour la conformité des donateurs',
+      partners_cta_label: 'Démarrer une conversation', partners_cta_title: 'Prêt à coordonner?',
+      partners_cta_body: 'Que vous représentiez une organisation privée, une agence gouvernementale ou une ONG — nous accueillons l\'opportunité de discuter de la façon dont TODOS Logistics peut soutenir vos exigences.',
+      contact_h1: 'Contactez-nous', contact_hero_p: 'Prêt à discuter de vos exigences logistiques? Nous répondons à toutes les demandes dans un jour ouvrable.',
+      contact_info_label: 'Coordonnées', contact_info_title: 'TODOS Logistics',
+      contact_email_label: 'Email', contact_entity_label: 'Entité', contact_entity_val: 'République Dominicaine (SRL)',
+      contact_ops_label: 'Opérations principales', contact_ops_val: 'République Dominicaine · Corridor Haïti · Caraïbes',
+      contact_response_label: 'Délai de réponse', contact_response_val: 'Dans 1 jour ouvrable',
+      contact_notice: 'Toutes les demandes sont traitées de manière confidentielle. Nous ne partageons pas les informations des clients avec des tiers.',
+      contact_form_label: 'Demande de consultation',
+      form_name: 'Nom complet', form_org: 'Organisation', form_email: 'Adresse email', form_phone: 'Numéro de téléphone',
+      form_service: 'Service requis', form_service_default: 'Sélectionnez un service...',
+      form_s1: 'Approvisionnement et acquisitions internationaux', form_s2: 'Courtage de fret et routage mondial',
+      form_s3: 'Transport terrestre transfrontalier', form_s4: 'Facilitation du commerce et conformité',
+      form_s5: 'Plusieurs services', form_s6: 'Autre / Pas sûr',
+      form_message: 'Message', form_submit: 'Envoyer la demande →',
+      form_success: 'Merci pour votre demande. Un représentant de TODOS Logistics répondra dans un jour ouvrable.',
+      footer_tagline: 'Coordination de l\'approvisionnement international et de la logistique transfrontalière dans les Caraïbes et au-delà.',
+      footer_company: 'Entreprise', footer_services: 'Services', footer_contact: 'Contact',
+      footer_copy: '© 2025 TODOS Logistics SRL. République Dominicaine. Tous droits réservés.',
+      footer_tagline_short: 'Connecter le monde. Acheminer sans frontières.'
+    }
+  };
+
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-toggle button:nth-child(${lang === 'en' ? 1 : lang === 'es' ? 2 : 3})`).classList.add('active');
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key]) el.textContent = t[key];
+    });
+    document.documentElement.lang = lang;
+  }
+
+  function goPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('onclick')?.includes(page));
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  function toggleMobile() {
+    const links = document.querySelector('.nav-links');
+    if (links.style.display === 'flex') {
+      links.style.display = '';
+    } else {
+      links.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:64px; left:0; right:0; background:var(--navy); padding:20px 24px; gap:16px; border-top:1px solid rgba(255,255,255,.1);';
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.style.display = 'none';
+  }
+
+  // Set home page nav as active initially
+  document.querySelector('.nav-links a:first-child')?.classList.add('active');
+</script>
+
+</body>
+</html>
