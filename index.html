@@ -495,26 +495,26 @@
           <div class="form-row">
             <div class="form-group">
               <label data-i18n="form_name">Full Name</label>
-              <input type="text" placeholder="John Doe" required />
+              <input type="text" name="fullName" placeholder="John Doe" required />
             </div>
             <div class="form-group">
               <label data-i18n="form_org">Organization</label>
-              <input type="text" placeholder="Company or Agency Name" />
+              <input type="text" name="organization" placeholder="Company or Agency Name" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label data-i18n="form_email">Email Address</label>
-              <input type="email" placeholder="you@organization.com" required />
+              <input type="email" name="email" placeholder="you@organization.com" required />
             </div>
             <div class="form-group">
               <label data-i18n="form_phone">Phone Number</label>
-              <input type="tel" placeholder="+1 (809) 000-0000" />
+              <input type="tel" name="phone" placeholder="+1 (809) 000-0000" />
             </div>
           </div>
           <div class="form-group">
             <label data-i18n="form_service">Service Needed</label>
-            <select>
+            <select name="service">
               <option value="" data-i18n="form_service_default">Select a service...</option>
               <option value="sourcing" data-i18n="form_s1">International Sourcing & Procurement</option>
               <option value="freight" data-i18n="form_s2">Freight Brokerage & Global Routing</option>
@@ -526,7 +526,7 @@
           </div>
           <div class="form-group">
             <label data-i18n="form_message">Message</label>
-            <textarea placeholder="Please describe your logistics requirements, trade corridor, cargo type, or any relevant details..." data-i18n-placeholder="form_message_ph"></textarea>
+            <textarea name="message" placeholder="Please describe your logistics requirements, trade corridor, cargo type, or any relevant details..." data-i18n-placeholder="form_message_ph"></textarea>
           </div>
           <button type="submit" class="form-submit" data-i18n="form_submit">Send Inquiry →</button>
         </form>
@@ -934,8 +934,29 @@
 
   function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('form-success').style.display = 'block';
-    e.target.style.display = 'none';
+    const formData = new FormData(e.target);
+    const fullName = (formData.get('fullName') || '').toString().trim();
+    const organization = (formData.get('organization') || '').toString().trim();
+    const email = (formData.get('email') || '').toString().trim();
+    const phone = (formData.get('phone') || '').toString().trim();
+    const service = (formData.get('service') || '').toString().trim();
+    const message = (formData.get('message') || '').toString().trim();
+    const subject = `Consultation Request - ${fullName || 'Website Inquiry'}`;
+    const bodyLines = [
+      'A new consultation request was submitted from todoslogistics.com.',
+      '',
+      `Full Name: ${fullName || 'N/A'}`,
+      `Organization: ${organization || 'N/A'}`,
+      `Email: ${email || 'N/A'}`,
+      `Phone: ${phone || 'N/A'}`,
+      `Service Needed: ${service || 'N/A'}`,
+      '',
+      'Message:',
+      message || 'N/A'
+    ];
+
+    const mailtoUrl = `mailto:sourcing@todoslogistics.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailtoUrl;
   }
 
   // Set home page nav as active initially
