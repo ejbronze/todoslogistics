@@ -490,48 +490,18 @@
       </div>
 
       <div>
-        <p class="section-label" data-i18n="contact_form_label">Consultation Request</p>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label data-i18n="form_name">Full Name</label>
-              <input type="text" name="fullName" placeholder="John Doe" required />
-            </div>
-            <div class="form-group">
-              <label data-i18n="form_org">Organization</label>
-              <input type="text" name="organization" placeholder="Company or Agency Name" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label data-i18n="form_email">Email Address</label>
-              <input type="email" name="email" placeholder="you@organization.com" required />
-            </div>
-            <div class="form-group">
-              <label data-i18n="form_phone">Phone Number</label>
-              <input type="tel" name="phone" placeholder="+1 (809) 000-0000" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label data-i18n="form_service">Service Needed</label>
-            <select name="service">
-              <option value="" data-i18n="form_service_default">Select a service...</option>
-              <option value="sourcing" data-i18n="form_s1">International Sourcing & Procurement</option>
-              <option value="freight" data-i18n="form_s2">Freight Brokerage & Global Routing</option>
-              <option value="ground" data-i18n="form_s3">Cross-Border Ground Transport</option>
-              <option value="compliance" data-i18n="form_s4">Trade Facilitation & Compliance</option>
-              <option value="multiple" data-i18n="form_s5">Multiple Services</option>
-              <option value="other" data-i18n="form_s6">Other / Not Sure</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label data-i18n="form_message">Message</label>
-            <textarea name="message" placeholder="Please describe your logistics requirements, trade corridor, cargo type, or any relevant details..." data-i18n-placeholder="form_message_ph"></textarea>
-          </div>
-          <button type="submit" class="form-submit" data-i18n="form_submit">Send Inquiry →</button>
-        </form>
-        <div id="form-success" style="display:none; background:var(--bg); border-left:3px solid var(--navy); padding:20px 24px; margin-top:16px; font-size:14px; color:var(--navy);" data-i18n="form_success">
-          Thank you for your inquiry. A TODOS Logistics representative will respond within one business day.
+        <p class="section-label" data-i18n="contact_direct_label">Direct Contact</p>
+        <div class="notice-banner" style="margin-top:0;" data-i18n="contact_direct_body">
+          For now, please contact us directly by email and include your organization, route, and service needs. We will respond within one business day.
+        </div>
+        <div class="contact-info-item" style="margin-top:18px;">
+          <p class="contact-info-label" data-i18n="contact_email_label">Email</p>
+          <p class="contact-info-value">
+            <a href="mailto:info@todoslogistics.com" style="color:var(--navy); text-decoration:none;">info@todoslogistics.com</a>
+          </p>
+        </div>
+        <div class="notice-banner" data-i18n="team_cards_coming">
+          Team contact cards are being prepared and will be added in a future update.
         </div>
       </div>
     </div>
@@ -674,7 +644,9 @@
       contact_ops_label: 'Primary Operations', contact_ops_val: 'Dominican Republic · Haiti Corridor · Caribbean',
       contact_response_label: 'Response Time', contact_response_val: 'Within 1 business day',
       contact_notice: 'All inquiries are handled confidentially. We do not share client information with third parties.',
-      contact_form_label: 'Consultation Request',
+      contact_direct_label: 'Direct Contact',
+      contact_direct_body: 'For now, please contact us directly by email and include your organization, route, and service needs. We will respond within one business day.',
+      team_cards_coming: 'Team contact cards are being prepared and will be added in a future update.',
       form_name: 'Full Name', form_org: 'Organization', form_email: 'Email Address', form_phone: 'Phone Number',
       form_service: 'Service Needed', form_service_default: 'Select a service...',
       form_s1: 'International Sourcing & Procurement', form_s2: 'Freight Brokerage & Global Routing',
@@ -779,7 +751,9 @@
       contact_ops_label: 'Operaciones Principales', contact_ops_val: 'República Dominicana · Corredor Haití · Caribe',
       contact_response_label: 'Tiempo de Respuesta', contact_response_val: 'Dentro de 1 día hábil',
       contact_notice: 'Todas las consultas se manejan de forma confidencial. No compartimos información de clientes con terceros.',
-      contact_form_label: 'Solicitud de Consulta',
+      contact_direct_label: 'Contacto Directo',
+      contact_direct_body: 'Por ahora, contáctenos directamente por correo electrónico e incluya su organización, ruta y necesidades de servicio. Responderemos dentro de un día hábil.',
+      team_cards_coming: 'Estamos preparando tarjetas de contacto del equipo y se agregarán en una próxima actualización.',
       form_name: 'Nombre Completo', form_org: 'Organización', form_email: 'Correo Electrónico', form_phone: 'Número de Teléfono',
       form_service: 'Servicio Requerido', form_service_default: 'Seleccione un servicio...',
       form_s1: 'Abastecimiento y Adquisiciones Internacionales', form_s2: 'Correduría de Carga y Rutas Globales',
@@ -884,7 +858,9 @@
       contact_ops_label: 'Opérations principales', contact_ops_val: 'République Dominicaine · Corridor Haïti · Caraïbes',
       contact_response_label: 'Délai de réponse', contact_response_val: 'Dans 1 jour ouvrable',
       contact_notice: 'Toutes les demandes sont traitées de manière confidentielle. Nous ne partageons pas les informations des clients avec des tiers.',
-      contact_form_label: 'Demande de consultation',
+      contact_direct_label: 'Contact Direct',
+      contact_direct_body: 'Pour l’instant, veuillez nous contacter directement par email et inclure votre organisation, votre itinéraire et vos besoins de service. Nous répondrons dans un jour ouvrable.',
+      team_cards_coming: 'Des fiches de contact de l’équipe sont en préparation et seront ajoutées dans une prochaine mise à jour.',
       form_name: 'Nom complet', form_org: 'Organisation', form_email: 'Adresse email', form_phone: 'Numéro de téléphone',
       form_service: 'Service requis', form_service_default: 'Sélectionnez un service...',
       form_s1: 'Approvisionnement et acquisitions internationaux', form_s2: 'Courtage de fret et routage mondial',
@@ -930,33 +906,6 @@
     } else {
       links.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:64px; left:0; right:0; background:var(--navy); padding:20px 24px; gap:16px; border-top:1px solid rgba(255,255,255,.1);';
     }
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const fullName = (formData.get('fullName') || '').toString().trim();
-    const organization = (formData.get('organization') || '').toString().trim();
-    const email = (formData.get('email') || '').toString().trim();
-    const phone = (formData.get('phone') || '').toString().trim();
-    const service = (formData.get('service') || '').toString().trim();
-    const message = (formData.get('message') || '').toString().trim();
-    const subject = `Consultation Request - ${fullName || 'Website Inquiry'}`;
-    const bodyLines = [
-      'A new consultation request was submitted from todoslogistics.com.',
-      '',
-      `Full Name: ${fullName || 'N/A'}`,
-      `Organization: ${organization || 'N/A'}`,
-      `Email: ${email || 'N/A'}`,
-      `Phone: ${phone || 'N/A'}`,
-      `Service Needed: ${service || 'N/A'}`,
-      '',
-      'Message:',
-      message || 'N/A'
-    ];
-
-    const mailtoUrl = `mailto:sourcing@todoslogistics.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-    window.location.href = mailtoUrl;
   }
 
   // Set home page nav as active initially
