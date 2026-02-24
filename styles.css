@@ -531,6 +531,13 @@ section { padding: 80px 40px; }
   text-transform: uppercase; color: var(--white); margin-bottom: 10px;
 }
 .market-detail { font-size: 13px; color: #7a8fa3; line-height: 1.6; }
+.market-crossings {
+  margin: 10px 0 0 18px;
+  color: #7a8fa3;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.market-crossings li { margin-bottom: 4px; }
 
 /* ─── PARTNERSHIPS ─── */
 .partner-tiers {
@@ -563,8 +570,11 @@ section { padding: 80px 40px; }
 
 /* ─── CONTACT ─── */
 .contact-layout {
-  display: grid; grid-template-columns: 1fr 2fr; gap: 64px;
-  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .contact-info { }
 .contact-info-item { margin-bottom: 28px; }
@@ -573,6 +583,13 @@ section { padding: 80px 40px; }
   text-transform: uppercase; color: var(--red); margin-bottom: 4px;
 }
 .contact-info-value { font-size: 15px; color: var(--navy); }
+.map-wrap { margin-top: 10px; }
+.map-wrap iframe {
+  width: 100%;
+  height: 320px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
 
 .contact-form { display: grid; gap: 16px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -610,6 +627,10 @@ section { padding: 80px 40px; }
   background: var(--navy); padding: 64px 40px 56px;
   border-bottom: 3px solid var(--red);
 }
+.page-hero.page-hero-light {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
 .page-hero-inner { max-width: 1100px; margin: 0 auto; }
 .page-hero-eyebrow {
   font-size: 11px; font-weight: 600; letter-spacing: 3px;
@@ -622,6 +643,8 @@ section { padding: 80px 40px; }
   color: var(--white); margin-bottom: 16px;
 }
 .page-hero p { font-size: 17px; color: #7a8fa3; max-width: 560px; }
+.page-hero.page-hero-light h1 { color: var(--navy); }
+.page-hero.page-hero-light p { color: var(--gray); }
 
 /* ─── FOOTER ─── */
 footer {
@@ -653,6 +676,20 @@ footer {
   transition: color .2s; cursor: pointer;
 }
 .footer-links a:hover { color: var(--white); }
+.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  color: #25d366 !important;
+  vertical-align: middle;
+}
+.whatsapp-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  display: block;
+}
 .footer-bottom {
   max-width: 1100px; margin: 40px auto 0;
   border-top: 1px solid #1d2d3e; padding-top: 24px;
