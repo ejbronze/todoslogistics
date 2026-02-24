@@ -14,9 +14,12 @@
 
 <!-- ═══ NAV ═══ -->
 <nav id="nav">
-  <a href="#" class="nav-logo" onclick="goPage('home')">
-    <span class="brand-todos" data-i18n="brand_todos">TODOS</span>
-    <span class="brand-logistics" data-i18n="brand_logistics">Logistics</span>
+  <a href="#" class="nav-logo" onclick="return reloadPage()">
+    <img src="Assets/Logo-Compass.png" alt="TODOS Logistics Compass" class="nav-logo-icon" />
+    <span class="nav-logo-text">
+      <span class="brand-todos" data-i18n="brand_todos">TODOS</span>
+      <span class="brand-logistics" data-i18n="brand_logistics">Logistics</span>
+    </span>
   </a>
 
   <ul class="nav-links">
@@ -29,11 +32,12 @@
   </ul>
 
   <div class="nav-right">
-    <div class="lang-toggle">
-      <button class="active" onclick="setLang('en')">EN</button>
-      <button onclick="setLang('es')">ES</button>
-      <button onclick="setLang('fr')">FR</button>
-    </div>
+    <label for="lang-select" class="visually-hidden">Language</label>
+    <select id="lang-select" class="lang-select" onchange="setLang(this.value)" aria-label="Language">
+      <option value="en">🇺🇸 EN</option>
+      <option value="es">🇩🇴 ES</option>
+      <option value="fr">🇫🇷 FR</option>
+    </select>
     <a href="#" class="btn-cta-nav" onclick="goPage('contact')" data-i18n="cta_consult">Request Consultation</a>
     <button class="mobile-menu-btn" onclick="toggleMobile()">
       <span></span><span></span><span></span>
@@ -46,14 +50,25 @@
 
   <!-- Hero -->
   <section class="hero" style="padding-bottom:80px;">
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <source src="Assets/videobanner.mp4" type="video/mp4" />
+      <source src="assest/videobanner.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-video-overlay" aria-hidden="true"></div>
     <div class="hero-inner">
-      <p class="hero-eyebrow" data-i18n="hero_eyebrow">Dominican Republic · Caribbean · Global</p>
-      <h1>TODOS<br><span>Logistics</span></h1>
-      <p class="hero-sub" data-i18n="hero_sub">Global sourcing. Cross-border execution.</p>
-      <p class="hero-support" data-i18n="hero_support">Coordinating international sourcing and cross-border logistics across the Caribbean and global markets.</p>
-      <div class="hero-btns">
-        <a href="#" class="btn-primary-white" onclick="goPage('contact')" data-i18n="cta_consult">Request Consultation</a>
-        <a href="#" class="btn-outline" onclick="goPage('services')" data-i18n="cta_services">View Services</a>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="hero-eyebrow" data-i18n="hero_eyebrow">Dominican Republic · Caribbean · Global</p>
+          <p class="hero-sub" data-i18n="hero_sub">Global sourcing. Cross-border execution.</p>
+          <p class="hero-support" data-i18n="hero_support">Coordinating international sourcing and cross-border logistics across the Caribbean and global markets.</p>
+          <div class="hero-btns">
+            <a href="#" class="btn-primary-white" onclick="goPage('contact')" data-i18n="cta_consult">Request Consultation</a>
+            <a href="#" class="btn-outline" onclick="goPage('services')" data-i18n="cta_services">View Services</a>
+          </div>
+        </div>
+        <a href="#" class="hero-brand" onclick="return reloadPage()">
+          <img src="Assets/Logo-Compass-Name.png" alt="TODOS Logistics" class="hero-brand-image" />
+        </a>
       </div>
     </div>
   </section>
@@ -86,22 +101,48 @@
       <p class="section-body" data-i18n="cap_body">TODOS Logistics provides end-to-end coordination across the full trade lifecycle — from procurement through final delivery.</p>
       <div class="cap-grid">
         <div class="cap-card">
-          <div class="cap-icon">🌐</div>
+          <div class="cap-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18"></path>
+              <path d="M12 3a15 15 0 0 1 0 18"></path>
+              <path d="M12 3a15 15 0 0 0 0 18"></path>
+            </svg>
+          </div>
           <p class="cap-title" data-i18n="cap1_title">International Sourcing & Procurement</p>
           <p class="cap-desc" data-i18n="cap1_desc">Connecting buyers with global suppliers across Asia, Europe, and the Americas. We manage vendor coordination, documentation, and supply chain structure.</p>
         </div>
         <div class="cap-card">
-          <div class="cap-icon">✈</div>
+          <div class="cap-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2L11 13"></path>
+              <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+            </svg>
+          </div>
           <p class="cap-title" data-i18n="cap2_title">Freight Brokerage & Global Routing</p>
           <p class="cap-desc" data-i18n="cap2_desc">Air and ocean freight coordination with optimized routing for cost and reliability. We work with established carriers to move cargo on your schedule.</p>
         </div>
         <div class="cap-card">
-          <div class="cap-icon">🚛</div>
+          <div class="cap-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1.5" y="6.5" width="13" height="9" rx="1.5"></rect>
+              <path d="M14.5 9h4l3 3v3.5h-7z"></path>
+              <circle cx="6" cy="17.5" r="1.8"></circle>
+              <circle cx="18.5" cy="17.5" r="1.8"></circle>
+            </svg>
+          </div>
           <p class="cap-title" data-i18n="cap3_title">Cross-Border Ground Transport</p>
           <p class="cap-desc" data-i18n="cap3_desc">Specialized in the Dominican Republic–Haiti land corridor, providing structured ground logistics with border crossing coordination.</p>
         </div>
         <div class="cap-card">
-          <div class="cap-icon">📋</div>
+          <div class="cap-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="3.5" width="14" height="17" rx="2"></rect>
+              <path d="M9 3.5h6v3H9z"></path>
+              <path d="M8.5 11h7"></path>
+              <path d="M8.5 15h7"></path>
+            </svg>
+          </div>
           <p class="cap-title" data-i18n="cap4_title">Trade Facilitation & Compliance</p>
           <p class="cap-desc" data-i18n="cap4_desc">Supporting importers and exporters with documentation, regulatory compliance, customs coordination, and trade procedure management.</p>
         </div>
@@ -117,19 +158,19 @@
       <p class="section-body" data-i18n="corr_body">Our operational focus spans key trade lanes in the Caribbean, with global sourcing reach across major supplier regions.</p>
       <div class="corridors-grid">
         <div class="corridor-card">
-          <p class="corridor-country" data-i18n="corr1_country">Dominican Republic</p>
+          <p class="corridor-country" data-i18n="corr1_country">🇩🇴 Dominican Republic</p>
           <p class="corridor-desc" data-i18n="corr1_desc">Primary base of operations. Full coordination of inbound and outbound freight, customs, and ground logistics.</p>
         </div>
         <div class="corridor-card">
-          <p class="corridor-country" data-i18n="corr2_country">Haiti</p>
+          <p class="corridor-country" data-i18n="corr2_country">🇭🇹 Haiti</p>
           <p class="corridor-desc" data-i18n="corr2_desc">Active land border corridor. Structured ground transport and cross-border trade facilitation.</p>
         </div>
         <div class="corridor-card">
-          <p class="corridor-country" data-i18n="corr3_country">United States</p>
+          <p class="corridor-country" data-i18n="corr3_country">🇺🇸 United States</p>
           <p class="corridor-desc" data-i18n="corr3_desc">Transshipment hub coordination and supplier linkage across major U.S. ports and inland distribution points.</p>
         </div>
         <div class="corridor-card">
-          <p class="corridor-country" data-i18n="corr4_country">Asia & Europe</p>
+          <p class="corridor-country" data-i18n="corr4_country">🌏 Asia · 🇪🇺 Europe</p>
           <p class="corridor-desc" data-i18n="corr4_desc">International sourcing coordination from established manufacturing regions, including China, Southeast Asia, and key European suppliers.</p>
         </div>
       </div>
@@ -227,6 +268,38 @@
           <p class="value-title" data-i18n="val4_title">Institutional Credibility</p>
           <p class="value-desc" data-i18n="val4_desc">Our structure, documentation practices, and operational discipline are designed for engagements with private enterprises, government agencies, and NGOs.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <p class="section-label" data-i18n="team_label">Team</p>
+      <h2 class="section-title" data-i18n="team_title">Meet the Team</h2>
+      <p class="section-body" data-i18n="team_body">Profiles below are placeholders and will be updated with team photos, names, roles, and direct contact details.</p>
+      <div class="team-grid">
+        <article class="team-card">
+          <div class="team-photo">
+            <img src="Assets/david-headshot.png" alt="David headshot" class="team-photo-img" />
+          </div>
+          <p class="team-name">David</p>
+        </article>
+        <article class="team-card">
+          <div class="team-photo" aria-hidden="true">TL</div>
+          <p class="team-name">Edwin</p>
+        </article>
+        <article class="team-card">
+          <div class="team-photo">
+            <img src="Assets/luiggi-headshot.png" alt="Luiggi headshot" class="team-photo-img" />
+          </div>
+          <p class="team-name">Luiggi</p>
+        </article>
+        <article class="team-card">
+          <div class="team-photo">
+            <img src="Assets/joshua-headshot.png" alt="Joshua headshot" class="team-photo-img" />
+          </div>
+          <p class="team-name">Joshua</p>
+        </article>
       </div>
     </div>
   </section>
@@ -472,6 +545,10 @@
           <p class="contact-info-value"><a href="mailto:info@todoslogistics.com" style="color:var(--navy); text-decoration:none;">info@todoslogistics.com</a></p>
         </div>
         <div class="contact-info-item">
+          <p class="contact-info-label" data-i18n="contact_phone_label">Phone</p>
+          <p class="contact-info-value"><a href="tel:+18494354591" style="color:var(--navy); text-decoration:none;" data-i18n="contact_phone_val">+1 849-435-4591</a></p>
+        </div>
+        <div class="contact-info-item">
           <p class="contact-info-label" data-i18n="contact_entity_label">Entity</p>
           <p class="contact-info-value" data-i18n="contact_entity_val">Dominican Republic (SRL)</p>
         </div>
@@ -498,6 +575,12 @@
           <p class="contact-info-label" data-i18n="contact_email_label">Email</p>
           <p class="contact-info-value">
             <a href="mailto:info@todoslogistics.com" style="color:var(--navy); text-decoration:none;">info@todoslogistics.com</a>
+          </p>
+        </div>
+        <div class="contact-info-item">
+          <p class="contact-info-label" data-i18n="contact_phone_label">Phone</p>
+          <p class="contact-info-value">
+            <a href="tel:+18494354591" style="color:var(--navy); text-decoration:none;" data-i18n="contact_phone_val">+1 849-435-4591</a>
           </p>
         </div>
         <div class="notice-banner" data-i18n="team_cards_coming">
@@ -539,6 +622,7 @@
       <p class="footer-col-title" data-i18n="footer_contact">Contact</p>
       <ul class="footer-links">
         <li><a href="mailto:info@todoslogistics.com">info@todoslogistics.com</a></li>
+        <li><a href="tel:+18494354591">+1 849-435-4591</a></li>
         <li><a onclick="goPage('contact')" data-i18n="cta_consult">Request Consultation</a></li>
       </ul>
     </div>
@@ -573,10 +657,10 @@
       cap4_desc: 'Supporting importers and exporters with documentation, regulatory compliance, customs coordination, and trade procedure management.',
       corr_label: 'Geographic Coverage', corr_title: 'Strategic Trade Corridors',
       corr_body: 'Our operational focus spans key trade lanes in the Caribbean, with global sourcing reach across major supplier regions.',
-      corr1_country: 'Dominican Republic', corr1_desc: 'Primary base of operations. Full coordination of inbound and outbound freight, customs, and ground logistics.',
-      corr2_country: 'Haiti', corr2_desc: 'Active land border corridor. Structured ground transport and cross-border trade facilitation.',
-      corr3_country: 'United States', corr3_desc: 'Transshipment hub coordination and supplier linkage across major U.S. ports and inland distribution points.',
-      corr4_country: 'Asia & Europe', corr4_desc: 'International sourcing coordination from established manufacturing regions, including China, Southeast Asia, and key European suppliers.',
+      corr1_country: '🇩🇴 Dominican Republic', corr1_desc: 'Primary base of operations. Full coordination of inbound and outbound freight, customs, and ground logistics.',
+      corr2_country: '🇭🇹 Haiti', corr2_desc: 'Active land border corridor. Structured ground transport and cross-border trade facilitation.',
+      corr3_country: '🇺🇸 United States', corr3_desc: 'Transshipment hub coordination and supplier linkage across major U.S. ports and inland distribution points.',
+      corr4_country: '🌏 Asia · 🇪🇺 Europe', corr4_desc: 'International sourcing coordination from established manufacturing regions, including China, Southeast Asia, and key European suppliers.',
       inst_label: 'Institutional Readiness', inst_title: 'Built for Structured Collaboration',
       inst_body: 'TODOS Logistics is structured for accountable, documented, and reliable coordination across institutional counterparts in both public and private sectors.',
       inst1_type: 'Private Enterprises', inst1_desc: 'Importers, exporters, manufacturers, and distributors seeking reliable logistics coordination and procurement support across Caribbean and global markets.',
@@ -596,6 +680,9 @@
       val2_title: 'Compliance-First Operations', val2_desc: 'Every engagement is built around documented processes, proper regulatory adherence, and transparent reporting — requirements for institutional counterparts.',
       val3_title: 'Regional Depth', val3_desc: 'Our understanding of Caribbean trade dynamics — particularly the DR-Haiti corridor — gives us an operational advantage that general logistics providers lack.',
       val4_title: 'Institutional Credibility', val4_desc: 'Our structure, documentation practices, and operational discipline are designed for engagements with private enterprises, government agencies, and NGOs.',
+      team_label: 'Team', team_title: 'Meet the Team',
+      team_body: 'Profiles below are placeholders and will be updated with team photos, names, roles, and direct contact details.',
+      team_name_placeholder: 'Team Member Name', team_role_placeholder: 'Role / Department', team_contact_placeholder: 'Email / Phone',
       services_h1: 'What We Do', services_hero_p: 'Four core service areas. One coordinated approach to international trade.',
       s1_title: 'International Sourcing & Procurement Coordination',
       s1_p1: 'We connect Caribbean-based importers with vetted international suppliers across Asia, Europe, and North America. Our role is to structure the sourcing process — identifying suppliers, coordinating samples and pricing, managing documentation, and ensuring supplier accountability throughout the procurement lifecycle.',
@@ -640,7 +727,7 @@
       partners_cta_body: 'Whether you represent a private organization, a government agency, or an NGO — we welcome the opportunity to discuss how TODOS Logistics can support your trade and logistics requirements.',
       contact_h1: 'Get in Touch', contact_hero_p: 'Ready to discuss your logistics requirements? We respond to all inquiries within one business day.',
       contact_info_label: 'Contact Information', contact_info_title: 'TODOS Logistics',
-      contact_email_label: 'Email', contact_entity_label: 'Entity', contact_entity_val: 'Dominican Republic (SRL)',
+      contact_email_label: 'Email', contact_phone_label: 'Phone', contact_phone_val: '+1 849-435-4591', contact_entity_label: 'Entity', contact_entity_val: 'Dominican Republic (SRL)',
       contact_ops_label: 'Primary Operations', contact_ops_val: 'Dominican Republic · Haiti Corridor · Caribbean',
       contact_response_label: 'Response Time', contact_response_val: 'Within 1 business day',
       contact_notice: 'All inquiries are handled confidentially. We do not share client information with third parties.',
@@ -680,10 +767,10 @@
       cap4_desc: 'Apoyamos a importadores y exportadores con documentación, cumplimiento normativo, coordinación aduanera y gestión de procedimientos comerciales.',
       corr_label: 'Cobertura Geográfica', corr_title: 'Corredores Comerciales Estratégicos',
       corr_body: 'Nuestro enfoque operativo abarca los principales corredores comerciales del Caribe, con alcance global de abastecimiento.',
-      corr1_country: 'República Dominicana', corr1_desc: 'Base principal de operaciones. Coordinación completa de carga entrante y saliente, aduanas y logística terrestre.',
-      corr2_country: 'Haití', corr2_desc: 'Corredor fronterizo terrestre activo. Transporte terrestre estructurado y facilitación del comercio transfronterizo.',
-      corr3_country: 'Estados Unidos', corr3_desc: 'Coordinación de centros de transbordo y enlace con proveedores a través de principales puertos estadounidenses.',
-      corr4_country: 'Asia y Europa', corr4_desc: 'Coordinación de abastecimiento internacional desde regiones manufactureras establecidas, incluyendo China, Sudeste Asiático y proveedores europeos clave.',
+      corr1_country: '🇩🇴 República Dominicana', corr1_desc: 'Base principal de operaciones. Coordinación completa de carga entrante y saliente, aduanas y logística terrestre.',
+      corr2_country: '🇭🇹 Haití', corr2_desc: 'Corredor fronterizo terrestre activo. Transporte terrestre estructurado y facilitación del comercio transfronterizo.',
+      corr3_country: '🇺🇸 Estados Unidos', corr3_desc: 'Coordinación de centros de transbordo y enlace con proveedores a través de principales puertos estadounidenses.',
+      corr4_country: '🌏 Asia · 🇪🇺 Europa', corr4_desc: 'Coordinación de abastecimiento internacional desde regiones manufactureras establecidas, incluyendo China, Sudeste Asiático y proveedores europeos clave.',
       inst_label: 'Preparación Institucional', inst_title: 'Diseñados para la Colaboración Estructurada',
       inst_body: 'TODOS Logistics está estructurado para una coordinación responsable, documentada y confiable con contrapartes institucionales en sectores público y privado.',
       inst1_type: 'Empresas Privadas', inst1_desc: 'Importadores, exportadores, fabricantes y distribuidores que buscan coordinación logística confiable y apoyo en adquisiciones.',
@@ -703,6 +790,9 @@
       val2_title: 'Operaciones con Cumplimiento Primero', val2_desc: 'Cada compromiso está construido sobre procesos documentados, adherencia regulatoria adecuada e informes transparentes.',
       val3_title: 'Profundidad Regional', val3_desc: 'Nuestra comprensión de las dinámicas comerciales del Caribe — particularmente el corredor RD-Haití — nos da una ventaja operativa que los proveedores de logística general no tienen.',
       val4_title: 'Credibilidad Institucional', val4_desc: 'Nuestra estructura, prácticas de documentación y disciplina operativa están diseñadas para compromisos con empresas privadas, agencias gubernamentales y ONGs.',
+      team_label: 'Equipo', team_title: 'Conoce al Equipo',
+      team_body: 'Los perfiles a continuación son marcadores de posición y se actualizarán con fotos del equipo, nombres, roles y datos de contacto directos.',
+      team_name_placeholder: 'Nombre del Miembro', team_role_placeholder: 'Rol / Departamento', team_contact_placeholder: 'Correo / Teléfono',
       services_h1: 'Lo Que Hacemos', services_hero_p: 'Cuatro áreas de servicio principales. Un enfoque coordinado al comercio internacional.',
       s1_title: 'Abastecimiento y Coordinación de Adquisiciones Internacionales',
       s1_p1: 'Conectamos importadores del Caribe con proveedores internacionales verificados en Asia, Europa y América del Norte. Nuestro rol es estructurar el proceso de abastecimiento.',
@@ -747,7 +837,7 @@
       partners_cta_body: 'Ya sea que represente una organización privada, una agencia gubernamental o una ONG — damos la bienvenida a la oportunidad de discutir cómo TODOS Logistics puede apoyar sus requisitos.',
       contact_h1: 'Contáctenos', contact_hero_p: '¿Listo para discutir sus requisitos logísticos? Respondemos todas las consultas dentro de un día hábil.',
       contact_info_label: 'Información de Contacto', contact_info_title: 'TODOS Logistics',
-      contact_email_label: 'Correo Electrónico', contact_entity_label: 'Entidad', contact_entity_val: 'República Dominicana (SRL)',
+      contact_email_label: 'Correo Electrónico', contact_phone_label: 'Teléfono', contact_phone_val: '+1 849-435-4591', contact_entity_label: 'Entidad', contact_entity_val: 'República Dominicana (SRL)',
       contact_ops_label: 'Operaciones Principales', contact_ops_val: 'República Dominicana · Corredor Haití · Caribe',
       contact_response_label: 'Tiempo de Respuesta', contact_response_val: 'Dentro de 1 día hábil',
       contact_notice: 'Todas las consultas se manejan de forma confidencial. No compartimos información de clientes con terceros.',
@@ -787,10 +877,10 @@
       cap4_desc: 'Soutien aux importateurs et exportateurs avec la documentation, la conformité réglementaire, la coordination douanière et la gestion des procédures commerciales.',
       corr_label: 'Couverture géographique', corr_title: 'Corridors commerciaux stratégiques',
       corr_body: 'Notre focus opérationnel couvre les principales voies commerciales des Caraïbes, avec une portée mondiale d\'approvisionnement.',
-      corr1_country: 'République Dominicaine', corr1_desc: 'Base d\'opérations principale. Coordination complète du fret entrant et sortant, des douanes et de la logistique terrestre.',
-      corr2_country: 'Haïti', corr2_desc: 'Corridor frontalier terrestre actif. Transport terrestre structuré et facilitation du commerce transfrontalier.',
-      corr3_country: 'États-Unis', corr3_desc: 'Coordination des centres de transbordement et liaison avec les fournisseurs dans les principaux ports américains.',
-      corr4_country: 'Asie et Europe', corr4_desc: 'Coordination de l\'approvisionnement international depuis des régions manufacturières établies, notamment la Chine, l\'Asie du Sud-Est et les fournisseurs européens clés.',
+      corr1_country: '🇩🇴 République Dominicaine', corr1_desc: 'Base d\'opérations principale. Coordination complète du fret entrant et sortant, des douanes et de la logistique terrestre.',
+      corr2_country: '🇭🇹 Haïti', corr2_desc: 'Corridor frontalier terrestre actif. Transport terrestre structuré et facilitation du commerce transfrontalier.',
+      corr3_country: '🇺🇸 États-Unis', corr3_desc: 'Coordination des centres de transbordement et liaison avec les fournisseurs dans les principaux ports américains.',
+      corr4_country: '🌏 Asie · 🇪🇺 Europe', corr4_desc: 'Coordination de l\'approvisionnement international depuis des régions manufacturières établies, notamment la Chine, l\'Asie du Sud-Est et les fournisseurs européens clés.',
       inst_label: 'Préparation institutionnelle', inst_title: 'Conçu pour la collaboration structurée',
       inst_body: 'TODOS Logistics est structuré pour une coordination responsable, documentée et fiable avec des contreparties institutionnelles dans les secteurs public et privé.',
       inst1_type: 'Entreprises privées', inst1_desc: 'Importateurs, exportateurs, fabricants et distributeurs cherchant une coordination logistique fiable et un soutien aux acquisitions.',
@@ -810,6 +900,9 @@
       val2_title: 'Opérations axées sur la conformité', val2_desc: 'Chaque engagement est construit autour de processus documentés, d\'une adhésion réglementaire adéquate et de rapports transparents.',
       val3_title: 'Profondeur régionale', val3_desc: 'Notre compréhension des dynamiques commerciales des Caraïbes — notamment le corridor RD-Haïti — nous donne un avantage opérationnel que les prestataires logistiques généraux n\'ont pas.',
       val4_title: 'Crédibilité institutionnelle', val4_desc: 'Notre structure, nos pratiques de documentation et notre discipline opérationnelle sont conçues pour des engagements avec des entreprises privées, des agences gouvernementales et des ONG.',
+      team_label: 'Équipe', team_title: 'Rencontrez l\'équipe',
+      team_body: 'Les profils ci-dessous sont des espaces réservés et seront mis à jour avec des photos, noms, rôles et coordonnées directes de l\'équipe.',
+      team_name_placeholder: 'Nom du membre', team_role_placeholder: 'Rôle / Département', team_contact_placeholder: 'Email / Téléphone',
       services_h1: 'Ce que nous faisons', services_hero_p: 'Quatre domaines de service principaux. Une approche coordonnée du commerce international.',
       s1_title: 'Coordination de l\'approvisionnement et des acquisitions internationaux',
       s1_p1: 'Nous connectons les importateurs caribéens avec des fournisseurs internationaux vérifiés en Asie, Europe et Amérique du Nord. Notre rôle est de structurer le processus d\'approvisionnement.',
@@ -854,7 +947,7 @@
       partners_cta_body: 'Que vous représentiez une organisation privée, une agence gouvernementale ou une ONG — nous accueillons l\'opportunité de discuter de la façon dont TODOS Logistics peut soutenir vos exigences.',
       contact_h1: 'Contactez-nous', contact_hero_p: 'Prêt à discuter de vos exigences logistiques? Nous répondons à toutes les demandes dans un jour ouvrable.',
       contact_info_label: 'Coordonnées', contact_info_title: 'TODOS Logistics',
-      contact_email_label: 'Email', contact_entity_label: 'Entité', contact_entity_val: 'République Dominicaine (SRL)',
+      contact_email_label: 'Email', contact_phone_label: 'Téléphone', contact_phone_val: '+1 849-435-4591', contact_entity_label: 'Entité', contact_entity_val: 'République Dominicaine (SRL)',
       contact_ops_label: 'Opérations principales', contact_ops_val: 'République Dominicaine · Corridor Haïti · Caraïbes',
       contact_response_label: 'Délai de réponse', contact_response_val: 'Dans 1 jour ouvrable',
       contact_notice: 'Toutes les demandes sont traitées de manière confidentielle. Nous ne partageons pas les informations des clients avec des tiers.',
@@ -877,10 +970,15 @@
 
   let currentLang = 'en';
 
+  function reloadPage() {
+    window.location.reload();
+    return false;
+  }
+
   function setLang(lang) {
     currentLang = lang;
-    document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
-    document.querySelector(`.lang-toggle button:nth-child(${lang === 'en' ? 1 : lang === 'es' ? 2 : 3})`).classList.add('active');
+    const langSelect = document.getElementById('lang-select');
+    if (langSelect && langSelect.value !== lang) langSelect.value = lang;
     const t = translations[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
