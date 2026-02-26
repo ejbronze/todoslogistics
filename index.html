@@ -302,17 +302,15 @@
   </div>
 
   <section style="padding-top:0;">
-    <div class="service-block">
+    <div class="service-block" id="service-01">
       <div class="service-layout">
         <div><div class="service-num">01</div></div>
         <div class="service-content">
           <p class="service-title" data-i18n="s1_title">International Sourcing & Procurement Coordination</p>
-          <p data-i18n="s1_p1">We connect Caribbean-based importers with vetted international suppliers across Asia, Europe, and North America. Our role is to structure the sourcing process — identifying suppliers, coordinating samples and pricing, managing documentation, and ensuring supplier accountability throughout the procurement lifecycle.</p>
+          <p data-i18n="s1_p1">From the Dominican Republic, we coordinate your procurement and secure the best pricing and lead-time conditions with local and international suppliers.</p>
           <p data-i18n="s1_p2">This service is particularly valuable for businesses that lack the in-house infrastructure to manage international supplier relationships directly.</p>
           <ul class="service-features">
             <li data-i18n="s1_f1">Supplier identification and vetting</li>
-            <li data-i18n="s1_f2">RFQ coordination and price comparison</li>
-            <li data-i18n="s1_f3">Purchase order and contract documentation</li>
             <li data-i18n="s1_f4">Pre-shipment coordination and quality oversight</li>
             <li data-i18n="s1_f5">Import documentation support</li>
           </ul>
@@ -321,7 +319,7 @@
       </div>
     </div>
 
-    <div class="service-block">
+    <div class="service-block" id="service-02">
       <div class="service-layout">
         <div><div class="service-num">02</div></div>
         <div class="service-content">
@@ -340,7 +338,7 @@
       </div>
     </div>
 
-    <div class="service-block">
+    <div class="service-block" id="service-03">
       <div class="service-layout">
         <div><div class="service-num">03</div></div>
         <div class="service-content">
@@ -359,7 +357,7 @@
       </div>
     </div>
 
-    <div class="service-block">
+    <div class="service-block" id="service-04">
       <div class="service-layout">
         <div><div class="service-num">04</div></div>
         <div class="service-content">
@@ -530,10 +528,10 @@
     <div>
       <p class="footer-col-title" data-i18n="footer_services">Services</p>
       <ul class="footer-links">
-        <li><a onclick="goPage('services')" data-i18n="cap1_title_short">Int'l Sourcing</a></li>
-        <li><a onclick="goPage('services')" data-i18n="cap2_title_short">Freight Brokerage</a></li>
-        <li><a onclick="goPage('services')" data-i18n="cap3_title_short">Ground Transport</a></li>
-        <li><a onclick="goPage('services')" data-i18n="cap4_title_short">Trade Compliance</a></li>
+        <li><a onclick="goPage('services','service-01')" data-i18n="cap1_title_short">Int'l Sourcing</a></li>
+        <li><a onclick="goPage('services','service-02')" data-i18n="cap2_title_short">Freight Brokerage</a></li>
+        <li><a onclick="goPage('services','service-03')" data-i18n="cap3_title_short">Ground Transport</a></li>
+        <li><a onclick="goPage('services','service-04')" data-i18n="cap4_title_short">Trade Compliance</a></li>
       </ul>
     </div>
     <div>
@@ -611,7 +609,7 @@
       team_name_placeholder: 'Team Member Name', team_role_placeholder: 'Role / Department', team_contact_placeholder: 'Email / Phone',
       services_h1: 'What We Do', services_hero_p: 'Four core service areas. One coordinated approach to international trade.',
       s1_title: 'International Sourcing & Procurement Coordination',
-      s1_p1: 'We connect Caribbean-based importers with vetted international suppliers across Asia, Europe, and North America. Our role is to structure the sourcing process — identifying suppliers, coordinating samples and pricing, managing documentation, and ensuring supplier accountability throughout the procurement lifecycle.',
+      s1_p1: 'From the Dominican Republic, we coordinate your procurement and secure the best pricing and lead-time conditions with local and international suppliers.',
       s1_p2: 'This service is particularly valuable for businesses that lack the in-house infrastructure to manage international supplier relationships directly.',
       s1_f1: 'Supplier identification and vetting', s1_f2: 'RFQ coordination and price comparison', s1_f3: 'Purchase order and contract documentation', s1_f4: 'Pre-shipment coordination and quality oversight', s1_f5: 'Import documentation support',
       s2_title: 'Freight Brokerage & Global Routing',
@@ -724,7 +722,7 @@
       team_name_placeholder: 'Nombre del Miembro', team_role_placeholder: 'Rol / Departamento', team_contact_placeholder: 'Correo / Teléfono',
       services_h1: 'Lo Que Hacemos', services_hero_p: 'Cuatro áreas de servicio principales. Un enfoque coordinado al comercio internacional.',
       s1_title: 'Abastecimiento y Coordinación de Adquisiciones Internacionales',
-      s1_p1: 'Conectamos importadores del Caribe con proveedores internacionales verificados en Asia, Europa y América del Norte. Nuestro rol es estructurar el proceso de abastecimiento.',
+      s1_p1: 'Desde la República Dominicana, coordinamos sus compras y buscamos las mejores condiciones de precio y plazos con proveedores locales e internacionales.',
       s1_p2: 'Este servicio es particularmente valioso para empresas que carecen de infraestructura interna para gestionar directamente las relaciones con proveedores internacionales.',
       s1_f1: 'Identificación y verificación de proveedores', s1_f2: 'Coordinación de RFQ y comparación de precios', s1_f3: 'Documentación de órdenes de compra y contratos', s1_f4: 'Coordinación pre-envío y supervisión de calidad', s1_f5: 'Apoyo en documentación de importación',
       s2_title: 'Correduría de Carga y Rutas Globales',
@@ -836,8 +834,8 @@
       team_body: 'Les profils ci-dessous sont des espaces réservés et seront mis à jour avec des photos, noms, rôles et coordonnées directes de l\'équipe.',
       team_name_placeholder: 'Nom du membre', team_role_placeholder: 'Rôle / Département', team_contact_placeholder: 'Email / Téléphone',
       services_h1: 'Ce que nous faisons', services_hero_p: 'Quatre domaines de service principaux. Une approche coordonnée du commerce international.',
-      s1_title: 'Coordination de l\'approvisionnement et des acquisitions internationaux',
-      s1_p1: 'Nous connectons les importateurs caribéens avec des fournisseurs internationaux vérifiés en Asie, Europe et Amérique du Nord. Notre rôle est de structurer le processus d\'approvisionnement.',
+      s1_title: 'Approvisionnement et coordination des achats',
+      s1_p1: 'Depuis la République dominicaine, nous coordonnons vos achats et recherchons les meilleures conditions de prix et de délais auprès de fournisseurs locaux et internationaux.',
       s1_p2: 'Ce service est particulièrement précieux pour les entreprises qui manquent d\'infrastructure interne pour gérer directement les relations avec les fournisseurs internationaux.',
       s1_f1: 'Identification et vérification des fournisseurs', s1_f2: 'Coordination des appels d\'offres et comparaison des prix', s1_f3: 'Documentation des bons de commande et contrats', s1_f4: 'Coordination préalable à l\'expédition et supervision de la qualité', s1_f5: 'Soutien à la documentation d\'importation',
       s2_title: 'Courtage de fret et routage mondial',
@@ -922,13 +920,24 @@
     document.documentElement.lang = lang;
   }
 
-  function goPage(page) {
+  function goPage(page, sectionId = '') {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + page).classList.add('active');
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.classList.toggle('active', a.getAttribute('onclick')?.includes(page));
     });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (sectionId) {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 10);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     return false;
   }
 
