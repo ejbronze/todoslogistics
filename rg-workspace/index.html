@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG Logistics Workspace | TODOS Logistics</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="referrer" content="no-referrer">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="workspace-topbar">
+        <a class="workspace-brand" href="../index.html" aria-label="Return to TODOS Logistics">
+            <img src="../Assets/Logo-Compass.png" alt="TODOS Logistics Compass">
+            <span class="workspace-brand-copy">
+                <strong>TODOS Logistics</strong>
+                <span>Private Workspace</span>
+            </span>
+        </a>
+        <div class="workspace-links">
+            <span class="workspace-badge">RG Document System</span>
+            <a class="workspace-link" href="../index.html">Public Site</a>
+        </div>
+    </header>
+    <main class="container">
+        <section class="hero-panel">
+            <div class="hero-copy">
+                <span class="eyebrow">Private Operations</span>
+                <h1>RG Invoice & Quote Workspace</h1>
+                <p>Create polished RG Logistics quotes, convert them into invoices, and manage document history from one place without exposing the workflow on the public site.</p>
+            </div>
+            <div class="hero-actions" aria-label="Primary actions">
+                <button class="btn btn-primary" id="newQuoteBtn" type="button">New Quote</button>
+                <button class="btn btn-success" id="newInvoiceBtn" type="button">New Invoice</button>
+                <p class="hero-note">Documents save in this browser and export with the RG letterhead, footer wave, and signature assets included in this workspace.</p>
+            </div>
+        </section>
+
+        <section class="overview-grid">
+            <article class="stat-card">
+                <span class="stat-label">Total Documents</span>
+                <strong class="stat-value" id="totalDocumentsStat">0</strong>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Quotes</span>
+                <strong class="stat-value" id="quoteCountStat">0</strong>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Invoices</span>
+                <strong class="stat-value" id="invoiceCountStat">0</strong>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Pipeline Value</span>
+                <strong class="stat-value" id="totalValueStat">$0.00</strong>
+            </article>
+        </section>
+
+        <section class="dashboard">
+                <div class="dashboard-topbar">
+                <div>
+                    <h2>Documents</h2>
+                    <p class="dashboard-subtitle">Search, edit, convert, and export your saved quotes and invoices.</p>
+                </div>
+                <label class="search-field">
+                    <span class="search-label">Search</span>
+                    <input type="search" id="documentSearch" placeholder="Search by ref, date, client, type, or tag">
+                </label>
+            </div>
+
+            <div class="filter-row" role="tablist" aria-label="Document filters">
+                <button class="filter-chip active" id="filterAllBtn" type="button" data-filter="all">All</button>
+                <button class="filter-chip" id="filterQuotesBtn" type="button" data-filter="quote">Quotes</button>
+                <button class="filter-chip" id="filterInvoicesBtn" type="button" data-filter="invoice">Invoices</button>
+            </div>
+
+            <div class="documents-grid" id="documentsGrid">
+                <div class="empty-state">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"></path>
+                    </svg>
+                    <p>No documents yet. Create your first quote or invoice!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="documentModal" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">New Quote</h3>
+                <button class="close-btn" id="closeModalBtn" type="button" aria-label="Close">x</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-layout">
+                    <div class="editor-panel">
+                        <div class="step-indicator">
+                            <div class="step active" data-step="1">
+                                <div class="step-number">1</div>
+                                <div class="step-label">Type & Info</div>
+                            </div>
+                            <div class="step" data-step="2">
+                                <div class="step-number">2</div>
+                                <div class="step-label">Client Details</div>
+                            </div>
+                            <div class="step" data-step="3">
+                                <div class="step-number">3</div>
+                                <div class="step-label">Line Items</div>
+                            </div>
+                            <div class="step" data-step="4">
+                                <div class="step-number">4</div>
+                                <div class="step-label">Items Preview</div>
+                            </div>
+                            <div class="step" data-step="5">
+                                <div class="step-number">5</div>
+                                <div class="step-label">Review</div>
+                            </div>
+                        </div>
+
+                        <div class="step-intro">
+                            <span class="step-intro-label">Current Step</span>
+                            <h4 id="stepIntroTitle">Type & Info</h4>
+                            <p id="stepIntroText">Choose the document type, confirm the date, and set the reference details.</p>
+                        </div>
+
+                        <div class="form-step active" data-step="1">
+                            <div class="review-section-header">
+                                <span class="review-section-step">Step 1</span>
+                                <h5>Document Details</h5>
+                                <p>Make quick changes to type, date, PO number, and tags.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="docType">Document Type</label>
+                                <select id="docType">
+                                    <option value="quote">Quote</option>
+                                    <option value="invoice">Invoice</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="refNumber">Reference Number</label>
+                                    <input type="text" id="refNumber">
+                                    <small class="field-help">You can adjust the last sequence digits if you need to change the quote or invoice number manually.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="docDate">Date</label>
+                                    <input type="date" id="docDate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="poNumber">Purchase Order Number (Optional)</label>
+                                <input type="text" id="poNumber" placeholder="N/A">
+                            </div>
+                            <div class="form-group">
+                                <label for="docTags">Tags</label>
+                                <input type="text" id="docTags" placeholder="Priority, Port-au-Prince, Forklift">
+                                <small class="field-help">Separate tags with commas to make documents easier to find later.</small>
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-step="2">
+                            <div class="review-section-header">
+                                <span class="review-section-step">Step 2</span>
+                                <h5>Client Details</h5>
+                                <p>Adjust the customer name or address without leaving review.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="clientSelect">Saved Client</label>
+                                <select id="clientSelect">
+                                    <option value="">-- Choose or Add Client --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="clientName">Client Name / Company</label>
+                                <input type="text" id="clientName" placeholder="CCXpress S.A | Chatelain Cargo Services">
+                            </div>
+                            <div class="form-group">
+                                <label for="clientAddress">Client Address</label>
+                                <textarea id="clientAddress" rows="3" placeholder="42 Airport Road, Port Au Prince, Haiti"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-success" id="saveClientBtn">Save Client</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-step="3">
+                            <div class="review-section-header">
+                                <span class="review-section-step">Step 3</span>
+                                <h5>Line Items</h5>
+                                <p>Update quantities and pricing for each service, then set document-wide notes and payment terms below.</p>
+                            </div>
+                            <div class="form-group">
+                                <div class="line-items-header">
+                                    <label>Line Items</label>
+                                    <button type="button" class="btn btn-secondary" id="addItemBtn">Add Item</button>
+                                </div>
+                                <div class="items-container" id="itemsContainer"></div>
+                            </div>
+                            <div class="document-settings-panel">
+                                <div class="document-settings-header">
+                                    <h6>Document Notes & Terms</h6>
+                                    <p>These fields apply to the overall quote or invoice, not to an individual line item.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="notes">Notes (Optional)</label>
+                                    <textarea id="notes" rows="3" placeholder="Add any exclusions, terms, or additional notes for the full document..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="paymentTerms">Terms of Payment</label>
+                                    <input type="text" id="paymentTerms" value="Payment Upon Receipt">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-step="4">
+                            <div class="review-section-header">
+                                <span class="review-section-step">Step 4</span>
+                                <h5>Line Item Preview</h5>
+                                <p>Inspect the commercial section before opening the full print-ready review.</p>
+                            </div>
+                            <div class="preview-container" id="lineItemsPreviewContainer"></div>
+                        </div>
+
+                        <div class="form-step" data-step="5">
+                            <div class="review-section-header">
+                                <span class="review-section-step">Step 5</span>
+                                <h5>Final Preview</h5>
+                                <p>Review the final output and export when everything looks right.</p>
+                            </div>
+                            <div class="preview-container" id="previewContainer"></div>
+                        </div>
+                    </div>
+                    <aside class="editor-sidebar">
+                        <section class="sidebar-card">
+                            <span class="sidebar-label">Document Summary</span>
+                            <div class="sidebar-value" id="summaryDocType">Quote</div>
+                            <div class="sidebar-meta" id="summaryRef">Ref pending</div>
+                            <div class="sidebar-meta" id="summaryDate">Date pending</div>
+                        </section>
+
+                        <section class="sidebar-card">
+                            <span class="sidebar-label">Client</span>
+                            <div class="sidebar-value sidebar-value-sm" id="summaryClient">No client selected</div>
+                            <div class="sidebar-meta sidebar-meta-multiline" id="summaryAddress">Choose or enter a client to continue.</div>
+                        </section>
+
+                        <section class="sidebar-card">
+                            <span class="sidebar-label">Commercial Snapshot</span>
+                            <div class="sidebar-metrics">
+                                <div>
+                                    <span class="sidebar-metric-label">Items</span>
+                                    <strong id="summaryItems">0</strong>
+                                </div>
+                                <div>
+                                    <span class="sidebar-metric-label">Subtotal</span>
+                                    <strong id="summaryTotal">$0.00</strong>
+                                </div>
+                            </div>
+                            <div class="sidebar-tags" id="summaryTags">
+                                <span class="sidebar-tag muted">No tags yet</span>
+                            </div>
+                        </section>
+
+                        <section class="sidebar-card">
+                            <span class="sidebar-label">Export Options</span>
+                            <label class="checkbox-row checkbox-row-block">
+                                <input type="checkbox" id="includeSignature" checked>
+                                <span>Include signature on export</span>
+                            </label>
+                            <small class="field-help">Turn this off for unsigned quotes or invoices before you export the PDF.</small>
+                        </section>
+
+                        <section class="sidebar-card sidebar-card-muted">
+                            <span class="sidebar-label">Workflow Tip</span>
+                            <p id="sidebarTip">Keep line items concise and use tags like destination, service type, or priority to make search much easier later.</p>
+                        </section>
+                    </aside>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="prevBtn" type="button" style="display: none;">Previous</button>
+                <button class="btn btn-primary" id="nextBtn" type="button">Next</button>
+                <button class="btn btn-success" id="saveBtn" type="button" style="display: none;">Save & Export PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
