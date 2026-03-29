@@ -256,6 +256,21 @@ body.is-authenticated .admin-shell {
     line-height: 1.6;
 }
 
+.import-status {
+    color: #5f7389;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+.import-status.is-success {
+    color: #186a4c;
+}
+
+.import-status.is-error {
+    color: #b42318;
+}
+
 .actions {
     display: flex;
     gap: 1rem;
