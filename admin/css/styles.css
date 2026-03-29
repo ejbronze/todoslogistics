@@ -18,7 +18,11 @@ body:not(.is-authenticated) {
 }
 
 .admin-shell[aria-hidden="true"] {
-    visibility: hidden;
+    display: none;
+}
+
+body.is-authenticated .admin-shell {
+    display: block;
 }
 
 .auth-gate {
@@ -30,7 +34,7 @@ body:not(.is-authenticated) {
     justify-content: center;
     padding: 1.5rem;
     background:
-        linear-gradient(180deg, rgba(247, 250, 252, 0.96), rgba(237, 243, 248, 0.98)),
+        linear-gradient(180deg, rgba(247, 250, 252, 1), rgba(237, 243, 248, 1)),
         radial-gradient(circle at top left, rgba(11, 93, 151, 0.1), transparent 28%);
     backdrop-filter: blur(10px);
 }
