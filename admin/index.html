@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RG Logistics Workspace | TODOS Logistics</title>
+    <title>Admin Workspace | TODOS Logistics</title>
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
     <meta name="referrer" content="no-referrer">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div class="auth-gate" id="authGate">
+        <div class="auth-card">
+            <span class="eyebrow">Private Access</span>
+            <h1>Sign In</h1>
+            <p>Enter the admin password to open the invoice and quote workspace.</p>
+            <form class="auth-form" id="authForm">
+                <label for="adminPassword">Password</label>
+                <input id="adminPassword" name="password" type="password" autocomplete="current-password" required>
+                <button class="btn btn-primary" type="submit">Enter Dashboard</button>
+                <p class="auth-error" id="authError" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="admin-shell" id="adminShell">
     <header class="workspace-topbar">
         <a class="workspace-brand" href="../index.html" aria-label="Return to TODOS Logistics">
             <img src="../Assets/Logo-Compass.png" alt="TODOS Logistics Compass">
@@ -18,7 +33,6 @@
             </span>
         </a>
         <div class="workspace-links">
-            <span class="workspace-badge">RG Document System</span>
             <a class="workspace-link" href="../index.html">Public Site</a>
         </div>
     </header>
@@ -26,8 +40,8 @@
         <section class="hero-panel">
             <div class="hero-copy">
                 <span class="eyebrow">Private Operations</span>
-                <h1>RG Invoice & Quote Workspace</h1>
-                <p>Create polished RG Logistics quotes, convert them into invoices, and manage document history from one place without exposing the workflow on the public site.</p>
+                <h1>Invoice & Quote Workspace</h1>
+                <p>Create polished quotes, convert them into invoices, and manage document history from one place without exposing the workflow on the public site.</p>
             </div>
             <div class="hero-actions" aria-label="Primary actions">
                 <button class="btn btn-primary" id="newQuoteBtn" type="button">New Quote</button>
@@ -287,5 +301,50 @@
     </div>
 
     <script src="js/app.js"></script>
+    <script>
+        (function () {
+            const PASSWORD = "todos123";
+            const AUTH_KEY = "todos_admin_signed_in_v1";
+            const authGate = document.getElementById("authGate");
+            const adminShell = document.getElementById("adminShell");
+            const authForm = document.getElementById("authForm");
+            const passwordInput = document.getElementById("adminPassword");
+            const authError = document.getElementById("authError");
+
+            function unlock() {
+                document.body.classList.add("is-authenticated");
+                authGate.setAttribute("aria-hidden", "true");
+                adminShell.removeAttribute("aria-hidden");
+            }
+
+            function lock() {
+                document.body.classList.remove("is-authenticated");
+                authGate.setAttribute("aria-hidden", "false");
+                adminShell.setAttribute("aria-hidden", "true");
+                passwordInput.focus();
+            }
+
+            if (sessionStorage.getItem(AUTH_KEY) === "granted") {
+                unlock();
+            } else {
+                lock();
+            }
+
+            authForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                if (passwordInput.value === PASSWORD) {
+                    sessionStorage.setItem(AUTH_KEY, "granted");
+                    authError.textContent = "";
+                    unlock();
+                    passwordInput.value = "";
+                    return;
+                }
+
+                authError.textContent = "Incorrect password. Please try again.";
+                passwordInput.select();
+            });
+        })();
+    </script>
 </body>
 </html>

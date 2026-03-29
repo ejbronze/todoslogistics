@@ -13,6 +13,92 @@ body {
     min-height: 100vh;
 }
 
+body:not(.is-authenticated) {
+    overflow: hidden;
+}
+
+.admin-shell[aria-hidden="true"] {
+    visibility: hidden;
+}
+
+.auth-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background:
+        linear-gradient(180deg, rgba(247, 250, 252, 0.96), rgba(237, 243, 248, 0.98)),
+        radial-gradient(circle at top left, rgba(11, 93, 151, 0.1), transparent 28%);
+    backdrop-filter: blur(10px);
+}
+
+.auth-gate[aria-hidden="true"] {
+    display: none;
+}
+
+.auth-card {
+    width: min(100%, 520px);
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(138, 163, 186, 0.24);
+    border-radius: 28px;
+    box-shadow: 0 24px 60px rgba(28, 52, 84, 0.12);
+    padding: 2.2rem;
+}
+
+.auth-card h1 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 0.98;
+    color: #132c4a;
+    margin-bottom: 0.9rem;
+}
+
+.auth-card p {
+    color: #4c647d;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.auth-form {
+    margin-top: 1.4rem;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.auth-form label {
+    color: #5f7389;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 0.95rem 1rem;
+    border-radius: 16px;
+    border: 1px solid #d6e0ea;
+    background: #f7fafc;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 0.95rem;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #0f5f9b;
+    box-shadow: 0 0 0 4px rgba(15, 95, 155, 0.12);
+}
+
+.auth-error {
+    min-height: 1.2rem;
+    color: #b42318;
+    font-size: 0.9rem;
+}
+
 .workspace-topbar {
     max-width: 1360px;
     margin: 0 auto;
@@ -1595,6 +1681,10 @@ body.print-window {
 
     .workspace-links {
         justify-content: flex-start;
+    }
+
+    .auth-card {
+        padding: 1.5rem;
     }
 
     .container {
